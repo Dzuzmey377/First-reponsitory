@@ -3,6 +3,11 @@ body{
 }
 
 h1{
+<<<<<<< Updated upstream
     font-size: 100px;
     color: red;
+=======
+    color: red;
+    font-size: 100px;
+>>>>>>> Stashed changes
 }
