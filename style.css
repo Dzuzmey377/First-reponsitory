@@ -1,5 +1,6 @@
 body{
     background: purple;
+<<<<<<< HEAD
 }
 
 h1{
@@ -10,4 +11,6 @@ h1{
     color: red;
     font-size: 100px;
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of a57d920... Добавил размер и цвет
 }
