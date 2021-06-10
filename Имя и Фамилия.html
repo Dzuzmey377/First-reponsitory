@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pr1</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>
+        <form name="form" onclick="return false">
+            Введите фамилию и имя: <input type="text" name="textt"/><br/>
+            <button onclick="button();">Отправить</div>
+        </form>
+        
+    </div>
+    <script>        
+        function button(){
+            let a = document.form.textt.value;
+            if(a == ""){
+                alert("В форме поле пустое!");
+            } 
+            else if(a.length < 3){
+                alert("В форме введите больше трёх символов!");
+            }
+            else if(a.indexOf("Дзу") != -1) {
+                alert("Отправлено!");
+                form.onclick = true;
+            }
+            else {
+                alert("В форме есть ошибка!");
+            }           
+        }
+    </script>
+</body>
+</html>
