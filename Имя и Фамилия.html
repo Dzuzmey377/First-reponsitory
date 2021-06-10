@@ -9,26 +9,28 @@
 <body>
     <div>
         <form name="form" onclick="return false">
-            Введите фамилию и имя: <input type="text" name="textt"/><br/>
-            <button onclick="button();">Отправить</div>
-        </form>
-        
+                Введите фамилию и имя:
+                <input type="text" name="textt"/>
+                <input type="text" name="textt2"/><br />
+                <button onclick="button();">Отправить</button>
+        </form>    
     </div>
     <script>        
         function button(){
             let a = document.form.textt.value;
-            if(a == ""){
-                alert("В форме поле пустое!");
+            let b = document.form.textt2.value;
+            if(a == "" || b == ""){
+                alert("Одно поле пустое или два поля пустые");
             } 
             else if(a.length < 3){
-                alert("В форме введите больше трёх символов!");
+                alert("В одной или в двух полях введите больше двух символов!");
             }
-            else if(a.indexOf("Дзу") != -1) {
+            else if(a.indexOf("Дзу") != -1 && b.length > 2) {
                 alert("Отправлено!");
                 form.onclick = true;
             }
             else {
-                alert("В форме есть ошибка!");
+                alert("В одной или в двух полях есть ошибка!");
             }           
         }
     </script>
