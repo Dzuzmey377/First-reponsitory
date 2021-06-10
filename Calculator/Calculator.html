@@ -19,22 +19,44 @@
             border: 3px solid black;
         }
 
-        .equal{
+        .equal {
             background: blue;
+        }
+            .equal > * {
+                color: #fff
+            }
+
+        
+        #foo > div.bar {
+            color: red;
         }
     </style>
 </head>
 <body>
-    
+
+    <div id="foo">
+        <div class="a">1</div>
+        <div>
+            <div class="bar">0</div>
+        </div>
+        <div class="bar">2</div>
+        <span class="bar">20</span>
+        <div class="c">3</div>
+    </div>
+
     <table border="3">
-        <form name="form">
-            <input type="text" name="textt" readonly>
-        </form>
         <tr>
-            <td><div class="item clean" onclick="clean()">C</div></td>
+            <td colspan="4">
+                <form name="form_calc">
+                    <input type="text" name="textt" readonly />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td><div class="item" onclick="clean()">C</div></td>
             <td><div class="item" onclick="insert('(')">(</div></td>
             <td><div class="item" onclick="insert(')')">)</div></td>
-            <td><div class="item back" onclick="back()">&larr;</div></td>
+            <td><div class="item" onclick="back()">&larr;</div></td>
         </tr>
         <tr>
             <td><div class="item" onclick="insert('1')">1</div>    
@@ -48,7 +70,7 @@
             <td><div class="item" onclick="insert('6')">6</div></td>
             <td><div class="item" onclick="insert('*')">&times;</div></td>  
 
-        </tr>
+        </tr>       
         <tr>
             <td><div class="item" onclick="insert('7')">7</div></td>
             <td><div class="item" onclick="insert('8')">8</div></td>
@@ -57,32 +79,33 @@
         </tr>
         <tr>
             <td><div class="item" onclick="insert('-')">-</div></td>
-            <td><div class="item zero" onclick="insert('0')">0</div></td>
+            <td><div class="item" onclick="insert('0')">0</div></td>
             <td><div class="item" onclick="insert('.')">.</div></td>
-            <td><div class="item equal" onclick="equal()"><h2>=</h2></div></td> 
+            <td class="equal item"><div onclick="equal()"><h2>=</h2></div></td> 
         </tr>
     </table>
-    <script>
-        function insert(name){
-            document.form.textt.value = 
-            document.form.textt.value + name;
+    <script>    
+
+        function insert(name) {
+            document.form_calc.textt.value = document.form_calc.textt.value + name;
         }
 
-        function clean(){
-            document.form.textt.value = ' ';
+        function clean() {
+            document.form_calc.textt.value = '';
         }
 
-        function back(){
-            let bk = document.form.textt.value;
-            document.form.textt.value = bk.substring(0, bk.length-1);
+        function back() {
+            let bk = document.form_calc.textt.value;
+            document.form_calc.textt.value = bk.substring(0, bk.length-1);
         }
 
         function equal() {
-            let num = document.form.textt.value;
-            if (num){
-                document.form.textt.value = eval(num);
+            let num = document.form_calc.textt.value;
+            if (num) {
+                document.form_calc.textt.value = eval(num);
             }
         }
+
     </script>
 </body>
 </html>
