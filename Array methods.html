@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array methods</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <script>
+            let arr = ['Apple', 'Banana', 'Cherry'];  
+            
+            document.write(arr);
+
+            function Arr(){
+                let prm = prompt("Вы точно хотите добавить элемент 'Pear'?\n(Если да, напишите Yes)");
+                if(prm == 'Yes'){
+                    arr.push('Pear');
+                    alert("Элемент добавляен!");
+                }
+                else if(prm == "No") {
+                    alert("Элемент не добавлен");
+                    return false;
+                }
+                else{
+                    alert("Ответ непонятен");
+                    return false;
+                }
+                document.write(arr);
+            }
+    </script>
+    <br />
+    <button onclick="Arr()" >Добавить элемент</button>
+</body>
+</html>
