@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pr1</title>
+    <title>Имя и Фамилия</title>
     <style>
 
     </style>
@@ -9,9 +9,9 @@
 <body>
     <div>
         <form name="form" onclick="return false">
-                Введите фамилию и имя:
-                <input type="text" name="textt"/>
-                <input type="text" name="textt2"/><br />
+                <div style="color: red;" id="div1"></div>
+                Введи фамилию: <input type="text" name="textt"/>
+                Введи имя: <input type="text" name="textt2"/><br />
                 <button onclick="button();">Отправить</button>
         </form>    
     </div>
@@ -20,17 +20,20 @@
             let a = document.form.textt.value;
             let b = document.form.textt2.value;
             if(a == "" || b == ""){
-                alert("Одно поле пустое или два поля пустые");
+                document.getElementById("div1").innerHTML = `<li>Одно поле пустое или два поля пустые!</li>`;
             } 
-            else if(a.length < 3){
-                alert("В одной или в двух полях введите больше двух символов!");
+            else if(a.length < 3 || b.length < 3){
+                document.getElementById("div1").innerHTML = `<li>В одной или в двух полях нужно ввести больше двух символов!</li>`;
             }
             else if(a.indexOf("Дзу") != -1 && b.length > 2) {
                 alert("Отправлено!");
                 form.onclick = true;
             }
+            else if(a.indexOf("@") != -1|| a.indexOf("#") != -1|| a.indexOf("$") != -1|| b.indexOf("@") != -1|| b.indexOf("#") != -1|| b.indexOf("$") != -1) {
+                document.getElementById("div1").innerHTML = `<li>Недопустимые символы!</li>`;
+            }
             else {
-                alert("В одной или в двух полях есть ошибка!");
+                document.getElementById("div1").innerHTML = `<li>В одной или в двух полях есть ошибка!</li>`;
             }           
         }
     </script>
