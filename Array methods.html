@@ -3,22 +3,26 @@
 <head>
     <title>Array methods</title>
     <style>
-
+        #div1{
+            font-size: 30px;
+        }
     </style>
 </head>
 <body>
     <script>
             let arr = ['Apple', 'Banana', 'Cherry'];  
             
-            document.write(arr);
+            function array(){
+                document.getElementById("div1").innerHTML = arr;
+            }
 
             function Arr(){
-                let prm = prompt("Вы точно хотите добавить элемент 'Pear'?\n(Если да, напишите Yes)");
-                if(prm == 'Yes'){
-                    arr.push('Pear');
+                let prm = prompt("Какой вы хотите добавить элемент?");
+                if(prm){
+                    arr.push(prm);
                     alert("Элемент добавляен!");
                 }
-                else if(prm == "No") {
+                else if(prm == "No" || "no" || "Нет" || "нет") {
                     alert("Элемент не добавлен");
                     return false;
                 }
@@ -26,10 +30,11 @@
                     alert("Ответ непонятен");
                     return false;
                 }
-                document.write(arr);
+                document.getElementById("div1").innerHTML = arr;
             }
     </script>
-    <br />
-    <button onclick="Arr()" >Добавить элемент</button>
+    <div id="div1"></div>
+    <button onclick="array()">Показать элементы</button><br /><br />
+    <button onclick="Arr()">Добавить элемент</button>
 </body>
 </html>
