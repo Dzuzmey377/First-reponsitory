@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <script> 
+        let map = new Map();
+
+        map.set("1", "str1");    
+        map.set(1, "num1");      
+        map.set(true, "bool1");  
+        map.set("2", 3);
+
+        alert(map.get(1));
+        alert(map.get("1")); 
+
+        map.delete(1);
+        map.delete("2");
+
+        alert(map.size);
+    </script> 
+</head>
+</html>
