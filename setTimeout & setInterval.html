@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>setTimeout & setInterval</title>
+    <script>
+        function setTm() {
+            let stIn = setInterval(() => alert('Появился спустя секунду'), 1000);
+            setTimeout(() => {clearInterval(stIn); alert('Stop');}, 5000)
+        }
+
+        setTm();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
