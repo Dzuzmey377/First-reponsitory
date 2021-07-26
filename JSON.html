@@ -8,11 +8,17 @@
             age: 18
         }
 
-        let json = JSON.stringify(user);
+        user = JSON.stringify(user);
 
-        alert(json);
+        alert(user);
 
-        
+        // теперь такой же пример, только наоборот (с parse)
+
+        let user2 = '{ "name": "Random", "age": 18}';
+
+        user2 = JSON.parse(user2);
+
+        alert(user2.name);
     </script>
 </head>
 </html>
