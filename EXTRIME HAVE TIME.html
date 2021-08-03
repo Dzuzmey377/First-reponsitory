@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEAD TIME</title>
+    <style>
+        #div1 {
+            height: 500px;
+            width: 1000px;
+            border: 3px solid black;
+            margin: auto;
+        }
+
+        .div {
+            height: 50px;
+            width: 50px;
+            border: 3px solid black;
+            display: none;
+            cursor: pointer;
+            position: absolute;
+        }
+        .div:active {
+            background-color: red;
+        }
+        #div2{
+            top: 100px;
+            left: 400px;
+        }
+
+        #div3{
+            top: 100px;
+            left: 400px;
+        }
+        #div4{
+            top: 200px;
+            left: 300px;
+        }
+        #div5{
+            top: 500px;
+            left: 100px;
+        }
+        #div6{
+            top: 350px;
+            left: 400px;
+        }
+        #div7{
+            top: 600px;
+            left: 500px;
+        }
+        #div8{
+            top: 100px;
+            left: 700px;
+        }
+        #div9{
+            top: 500px;
+            left: 1000px;
+        }
+        #div10{
+            top: 300px;
+            left: 1100px;
+        }
+        #div11{
+            top: 100px;
+            left: 1400px;
+        }
+        #div12{
+            top: 500px;
+            left: 1400px;
+        }
+        #div13{
+            top: 350px;
+            left: 100px;
+        }
+        #div14{
+            top: 100px;
+            left: 400px;
+        }
+        #div15{
+            top: 300px;
+            left: 700px;
+        }
+        #div16{
+            top: 50px;
+            left: 200px;
+        }
+        #div17{
+            top: 100px;
+            left: 700px;
+        }
+        #div18{
+            top: 600px;
+            left: 100px;
+        }
+       
+         
+    </style>
+</head>
+<body id="body">
+    <div id="div1">
+        <div id="div2" class="div"></div>
+        <div id="div3" class="div"></div>
+        <div id="div4" class="div"></div>
+        <div id="div5" class="div"></div>
+        <div id="div6" class="div"></div>
+        <div id="div7" class="div"></div>
+        <div id="div8" class="div"></div>
+        <div id="div9" class="div"></div>
+        <div id="div10" class="div"></div>
+        <div id="div11" class="div"></div>
+        <div id="div12" class="div"></div>
+        <div id="div13" class="div"></div>
+        <div id="div14" class="div"></div>
+        <div id="div15" class="div"></div>
+        <div id="div16" class="div"></div>
+        <div id="div17" class="div"></div>
+        <div id="div18" class="div"></div>
+    </div>
+    <script>
+        let div2 = document.getElementById("div2");
+        setTimeout(() => div2.style.display = "block", 500);
+
+        let div3 = document.getElementById("div3");
+        setTimeout(() => div3.style.display = "block", 700);
+
+        let div4 = document.getElementById("div4");
+        setTimeout(() => div4.style.display = "block", 900);
+
+        let div5 = document.getElementById("div5");
+        setTimeout(() => div5.style.display = "block", 1100);
+
+        let div6 = document.getElementById("div6");
+        setTimeout(() => div6.style.display = "block", 1300);
+        
+        let div7 = document.getElementById("div7");
+        setTimeout(() => div7.style.display = "block", 1500);
+        
+        let div8 = document.getElementById("div8");
+        setTimeout(() => div8.style.display = "block", 1700);
+        
+        let div9 = document.getElementById("div9");
+        setTimeout(() => div9.style.display = "block", 1900);
+        
+        let div10 = document.getElementById("div10");
+        setTimeout(() => div10.style.display = "block", 2100);
+        
+        let div11 = document.getElementById("div11");
+        setTimeout(() => div11.style.display = "block", 2300);
+        
+        let div12 = document.getElementById("div12");
+        setTimeout(() => div12.style.display = "block", 2500);
+        
+        let div13 = document.getElementById("div13");
+        setTimeout(() => div13.style.display = "block", 2700);
+        
+        let div14 = document.getElementById("div14");
+        setTimeout(() => div14.style.display = "block", 2900);
+        
+        let div15 = document.getElementById("div15");
+        setTimeout(() => div15.style.display = "block", 3100);
+        
+        let div16 = document.getElementById("div16");
+        setTimeout(() => div16.style.display = "block", 3300);
+        
+        let div17 = document.getElementById("div17");
+        setTimeout(() => div17.style.display = "block", 3500);
+        
+        let div18 = document.getElementById("div18");
+        setTimeout(() => div18.style.display = "block", 3700);
+        
+        setTimeout(() => body.style.backgroundColor = "red", 2100);
+        setTimeout(() => document.write(`<span style="margin-left: 500px; font-size: 50px;">Error<br /></span><span style="font-size: 500px; margin-left: 500px;">:(</span>`), 4000);
+        setTimeout(() => window.location.href = "Error.html", 7000);
+
+        
+    </script>  
+</body>
+</html>

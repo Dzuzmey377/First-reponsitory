@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEAD TIME</title>
+    <style>
+       
+    </style>
+</head>
+<body id="body">
+    <button onclick="but()" style="margin-left: 1000px; background-color: red; color: white;">Нажмите, чтобы продолжить</button>
+    <span style="margin-left: 500px; font-size: 50px; color: red;">Error<br /></span><span style="font-size: 500px; margin-left: 500px; color: red;">:)</span>
+    <script>
+        let body = document.getElementById("body");
+        function but(){
+            setTimeout(() => body.style.background = "url(Monster.jpg)", 2000);
+            setTimeout(() => window.location.href = "Обращение.html", 3500);
+        }
+        
+    </script>  
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Have time!</title>
+    <style>
+        #div1 {
+            height: 500px;
+            width: 1000px;
+            border: 3px solid black;
+            margin: auto;
+        }
+
+        #h2 {
+            color: red;
+            text-align: center;
+        }
+
+        .div {
+            height: 50px;
+            width: 50px;
+            border: 3px solid black;
+            display: none;
+        }
+
+        #div2 {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            float: left;
+        }
+
+        #div3 {
+            position: relative;
+            top: 300px;
+            left: 50px;
+            float: left;
+        }
+
+        #div4 {
+            position: relative;
+            top: 350px;
+            left: 560px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h2 id="h2">Привет! Рад тебя видеть здесь!</h2>
+        <div id="div2" class="div" onclick="div10()"></div>
+        <div id="div3" class="div"></div>
+        <div id="div4" class="div"></div>
+    </div>
+    <script>
+        alert('Это что настолько трудно!!?');
+        alert('Ладно не важно, попробуй еще раз');
+        function div10(){
+            let div = document.getElementById("div2");
+            setTimeout(() => div.style.display = "block", 1000);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                
+                clearInterval(clI);
+            }
+            let clI = setTimeout(() => window.location.href = "Reload HT.html", 2500);
+        }
+
+        function div11(){
+            let div = document.getElementById("div3");
+            setTimeout(() => div.style.display = "block", 2500);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                
+                clearInterval(clI);
+            }
+            let clI = setTimeout(() => window.location.href = "Reload HT.html", 4000);
+        }
+            
+        function div12(){
+            let div = document.getElementById("div4");
+            setTimeout(() => div.style.display = "block", 4000);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                
+                clearInterval(clI);
+                alert("Молодец! Но это было слишком легко не правда ли?");
+                alert("Давай перейдем уже к реальным уровням!");
+                window.location.href = "Средний Have Time.html";
+            }
+            let clI  = setTimeout(() => window.location.href = "Reload HT.html", 5500);
+        }
+            
+        div10();
+        div11();
+        div12();
+        
+    </script>  
+</body>
+</html>

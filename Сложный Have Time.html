@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Have time!</title>
+    <style>
+        #div1 {
+            height: 500px;
+            width: 1000px;
+            border: 3px solid black;
+            margin: auto;
+        }
+
+        #h2 {
+            color: red;
+            text-align: center;
+        }
+
+        .div {
+            height: 50px;
+            width: 50px;
+            border: 3px solid black;
+            display: none;
+            cursor: pointer;
+        }
+
+        #div2 {
+            position: relative;
+            top: 200px;
+            left: 100px;
+            float: left;
+        }
+
+        #div3 {
+            position: relative;
+            top: 300px;
+            left: 250px;
+            float: left;
+        }
+
+        #div4 {
+            position: relative;
+            top: 30px;
+            left: 460px;
+            float: left;
+        }
+
+        #div5 {
+            position: relative;
+            top: 250px;
+            left: 400px;
+        }
+
+        #div6{
+            position: relative;
+            top: 10px;
+            left: 220px;
+            float: left;
+           
+        }
+
+        #div7{
+            position: relative;
+            top: 100px;
+            left: 800px;
+            float: left;
+            width: 25px;
+            height: 25px;
+        }
+
+        #div8{
+            position: relative;
+            top: 150px;
+            left: 775px;
+            float: left;
+            width: 25px;
+            height: 25px;
+        }
+
+        #div9{
+            position: relative;
+            top: 200px;
+            left: 750px;
+            float: left;
+            width: 25px;
+            height: 25px;
+        }
+
+        #div10{
+            position: relative;
+            top: 20px;
+            left: 25px;
+            float: left;
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div1">
+        <h2 id="h2">Привет! Рад тебя видеть здесь!</h2>
+        <div id="div2" class="div"></div>
+        <div id="div3" class="div"></div>
+        <div id="div4" class="div"></div>
+        <div id="div5" class="div"></div>
+        <div id="div6" class="div"></div>
+        <div id="div7" class="div"></div>
+        <div id="div8" class="div"></div>
+        <div id="div9" class="div"></div>
+        <div id="div10" class="div"></div>
+    </div>
+    <script>
+        alert('3 уровень');
+        alert('Сложность: Сложный');
+        alert('Уровень начнется автоматически заново если ты проиграешь');
+        function div10(){
+            let div = document.getElementById("div2");
+            setTimeout(() => div.style.display = "block", 1000);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                
+                clearInterval(clI);
+            }
+            let clI = setTimeout(() => window.location.reload(), 1700);
+        }
+
+        function div11(){
+            let div = document.getElementById("div3");
+            setTimeout(() => div.style.display = "block", 1700);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+            }
+            let clI = setTimeout(() => window.location.reload(), 2400);
+        }
+            
+        function div12(){
+            let div = document.getElementById("div4");
+            setTimeout(() => div.style.display = "block", 2400);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+            }
+            let clI  = setTimeout(() => window.location.reload(), 3100);
+        }
+            
+        function div13(){
+            let div = document.getElementById("div5");
+            setTimeout(() => div.style.display = "block", 3100);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI); 
+            }
+            let clI  = setTimeout(() => window.location.reload(), 3800);
+        } 
+
+        function div14(){
+            let div = document.getElementById("div6");
+            setTimeout(() => div.style.display = "block", 3800);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+            }
+            let clI  = setTimeout(() => window.location.reload(), 4500);
+        }
+
+        function div15(){
+            let div = document.getElementById("div7");
+            setTimeout(() => div.style.display = "block", 4500);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+            }
+            let clI  = setTimeout(() => window.location.reload(), 5200);
+        }
+
+        function div16(){
+            let div = document.getElementById("div8");
+            setTimeout(() => div.style.display = "block", 5000);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+            }
+            let clI  = setTimeout(() => window.location.reload(), 5700);
+        }
+
+        function div17(){
+            let div = document.getElementById("div9");
+            setTimeout(() => div.style.display = "block", 5500);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+            }
+            let clI  = setTimeout(() => window.location.reload(), 6500);
+        }
+
+        function div18(){
+            let div = document.getElementById("div10");
+            setTimeout(() => div.style.display = "block", 7500);
+            div.onclick = function() {
+                div.style.backgroundColor = "red";
+                clearInterval(clI);
+                alert("Хммм.... Значит и  это для тебя просто...");
+                alert("Ну-ну...Посмотрим как ты справишься со следующим");
+                window.location.href = "HARD HAVE TIME.html";
+            }
+            let clI  = setTimeout(() => window.location.reload(), 8000);
+        }
+           
+        div10();
+        div11();
+        div12();
+        div13();
+        div14();
+        div15();
+        div16();
+        div17();
+        div18();
+    </script> 
+</body>
+</html>
