@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Have time!</title>
+    <style>
+        *{
+            cursor: url('Prizel2.jpg'), pointer;
+        }
+        
+        .div {
+            height: 75px;
+            width: 75px;
+            user-select: none;
+        }
+
+        #div2 {
+            position: absolute;
+            top: 300px;
+            left: 200px;
+            animation: mar 4s linear infinite;
+        }
+
+        @keyframes mar{
+            0%{
+                left: 200px;
+            }
+            50%{
+                left: 600px;
+            }
+            100%{
+                left: 200px;
+            }
+        }
+        
+        #div3 {
+            position: absolute;
+            top: 30px;
+            left: 150px;
+            animation: mar2 3s linear infinite;
+        }
+
+        @keyframes mar2{
+            0%{
+                left: 150px;
+            }
+            50%{
+                left: 550px;
+            }
+            100%{
+                left: 150px;
+            }
+        }
+
+        #div4 {
+            position: absolute;
+            top: 30px;
+            left: 900px;
+            animation: mar3 4s linear infinite;
+        }
+
+        @keyframes mar3{
+            0%{
+                top: 30px;
+            }
+            50%{
+                top: 430px;
+            }
+            100%{
+                top: 30px;
+            }
+        }
+
+        #div5 {
+            position: absolute;
+            top: 600px;
+            left: 400px;
+            animation: mar4 1s linear infinite;
+        }
+
+        @keyframes mar4{
+            0%{
+                left: 400px;
+            }
+            50%{
+                left: 600px;
+            }
+            100%{
+                left: 400px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2" class="div" onclick="alert('fff')"><img src="Mish.jpg" width="75" height="75" /></div>
+        <div id="div3" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+        <div id="div4" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+        <div id="div5" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+    </div>
+    <script>
+        alert('Ну как?');
+        alert('А теперь проходи уровень)');
+        alert('Успей за 10 секунд попасть по всем');
+        function div10(){
+            let div = document.getElementById("div2");
+            div.onclick = function() {
+                clearInterval(clI);
+                div.style.display = "none";
+            }
+            let clI = setTimeout(() => window.location.reload(), 10000);
+        }
+
+        function div11(){
+            let div = document.getElementById("div3");
+            div.onclick = function() {
+                clearInterval(clI);
+                div.style.display = "none";
+            }
+            let clI = setTimeout(() => window.location.reload(), 10000);
+        }
+            
+        function div12(){
+            let div = document.getElementById("div4");
+            div.onclick = function() {
+                clearInterval(clI);
+                div.style.display = "none";
+            }
+            let clI  = setTimeout(() => window.location.reload(), 10000);
+        }
+            
+        function div13(){
+            let div = document.getElementById("div5");
+            div.onclick = function() {
+                clearInterval(clI); 
+                div.style.display = "none";
+            }
+            let clI  = setTimeout(() => window.location.reload(), 10000);
+        } 
+
+        div10();
+        div11();
+        div12();
+        div13();
+    </script> 
+</body>
+</html>
