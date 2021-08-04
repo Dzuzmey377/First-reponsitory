@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Have time!</title>
+    <style>
+        *{
+            cursor: url('Prizel2.jpg'), pointer;
+        }
+    
+        .div {
+            height: 75px;
+            width: 75px;
+            display: none;
+        }
+
+        #div2 {
+            position: absolute;
+            top: 300px;
+            left: 200px;
+        }
+
+        #div3 {
+            position: absolute;
+            top: 30px;
+            left: 150px;
+        }
+
+        #div4 {
+            position: absolute;
+            top: 30px;
+            left: 900px;
+        }
+
+        #div5 {
+            position: absolute;
+            top: 600px;
+            left: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+        <div id="div3" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+        <div id="div4" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+        <div id="div5" class="div"><img src="Mish.jpg" width="75" height="75" /></div>
+    </div>
+    <script>
+        alert('Ты перешёл на первый этап');
+        alert('Всё верно, всё ранее это были лишь тренировки :)');
+        alert('Надеюсь тебе понравятся новые формы');
+        function div10(){
+            let div = document.getElementById("div2");
+            setTimeout(() => div.style.display = "block", 1000);
+            div.onclick = function() {
+                clearInterval(clI);
+                div.style.display = "none";
+            }
+            let clI = setTimeout(() => window.location.reload(), 2300);
+        }
+
+        function div11(){
+            let div = document.getElementById("div3");
+            setTimeout(() => div.style.display = "block", 2300);
+            div.onclick = function() {
+                clearInterval(clI);
+                div.style.display = "none";
+            }
+            let clI = setTimeout(() => window.location.reload(), 3600);
+        }
+            
+        function div12(){
+            let div = document.getElementById("div4");
+            setTimeout(() => div.style.display = "block", 3600);
+            div.onclick = function() {
+                clearInterval(clI);
+                div.style.display = "none";
+            }
+            let clI  = setTimeout(() => window.location.reload(), 4900);
+        }
+            
+        function div13(){
+            let div = document.getElementById("div5");
+            setTimeout(() => div.style.display = "block", 4900);
+            div.onclick = function() {
+                clearInterval(clI); 
+                div.style.display = "none";
+                window.location.href = "Starting NewR HT.html";
+                alert('Кхм Кхм');
+                alert('Слишком просто...');
+            }
+            let clI  = setTimeout(() => window.location.reload(), 6200);
+        } 
+
+        div10();
+        div11();
+        div12();
+        div13();
+    </script> 
+</body>
+</html>
