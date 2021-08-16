@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        #kvadr{
+            position: absolute;
+            background: red;
+            width: 100px;
+            height: 100px;
+            top: 300px;
+            left: 300px;
+        }
+
+        #kvadr2{
+            position: absolute;
+            background: red;
+            width: 100px;
+            height: 100px;
+            top: 300px;
+            left: 1000px;
+        }
+
+        #kvadr3{
+            width: 30px;
+            height: 30px;
+            background: green;
+            margin-top: 35px;
+            margin-left: 100px;
+            display: none;
+            animation: an 0.3s linear;
+        }
+
+        @keyframes an {
+            0%{
+                margin-left: 100px;
+            }
+            50%{
+                margin-left: 500px;
+            }
+            100%{
+                margin-left: 1300px;
+            }
+        }
+
+        #kvadr4{
+            width: 30px;
+            height: 30px;
+            background: green;
+            margin-top: 35px;
+            margin-left: -30px;
+            display: none;
+            animation: an2 0.3s linear;
+        }
+
+        @keyframes an2 {
+            0%{
+                margin-left: -30px;
+            }
+            50%{
+                margin-left: -430px;
+            }
+            100%{
+                margin-left: -1230px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="kvadr">
+        <div id="kvadr3"></div>
+    </div>
+    <div id="kvadr2">
+        <div id="kvadr4"></div>
+    </div>
+    <script>
+            let left = 300;
+            let topper = 300;
+            let left2 = 1000;
+            let topper2 = 300;
+            window.onkeydown = function(ev){
+                if(ev.keyCode==83){
+                    topper=topper+100;
+                    document.getElementById('kvadr').style.top = topper + 'px';
+                }
+                else if(ev.keyCode==87){
+                    topper=topper-100;
+                    document.getElementById('kvadr').style.top = topper + 'px';
+                }  
+                else if(ev.keyCode==40){
+                    topper2=topper2+100;
+                    document.getElementById('kvadr2').style.top = topper2 + 'px';
+                }
+                else if(ev.keyCode==38){
+                    topper2=topper2-100;
+                    document.getElementById('kvadr2').style.top = topper2 + 'px';
+                }
+                if(ev.keyCode==71){
+                    document.getElementById('kvadr3').style.display = "block";
+                    setTimeout(() => document.getElementById('kvadr3').style.display = "none", 300);
+                }
+                if(ev.keyCode==74){
+                    document.getElementById('kvadr4').style.display = "block";
+                    setTimeout(() => document.getElementById('kvadr4').style.display = "none", 300);
+                }
+            };
+            
+    </script>
+</body>
+</html>
