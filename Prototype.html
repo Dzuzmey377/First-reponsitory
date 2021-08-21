@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prototype</title>
+    <script>
+        let us1 = {
+            num1: 377,
+            numB(){
+                alert("ddd");
+            }
+        };
+
+        let us2 = {
+            num2: 577,
+            __proto__: us1
+        };
+
+        let us3 = {
+            num3: 777,
+            __proto__: us2
+        }
+
+        us3.numB();
+        alert(us2.num1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
