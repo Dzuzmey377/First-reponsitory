@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F constructor</title>
+    <script>
+        function User(name){
+            this.name = name;
+            this.age = "unknown";
+        }
+
+        let user = new User("Zero");
+
+        alert(user.name);
+        alert(user.age);
+
+        function AgeObg(ageObg){
+            this.ageObg = ageObg;
+            return{
+                ageObg: 3000 //меняет значение
+            }
+        }
+
+        alert(new AgeObg("unknown").ageObg);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
