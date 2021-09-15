@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>counter</title>
+    <script>
+        function sayHi(){
+            alert("What?")
+            sayHi.counter++;
+        }
+
+        sayHi.counter = 0;
+
+        sayHi();
+        sayHi();
+        sayHi();
+
+        alert(`Вызвана ${sayHi.counter} раза`);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
