@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property flags</title>
+    <script>
+        let user = {
+            object: "apple"
+        };
+
+        let desc = Object.getOwnPropertyDescriptor(user, "object");
+
+        alert( JSON.stringify(desc, null, 2) );
+    </script>
+</head>
+</html> 
