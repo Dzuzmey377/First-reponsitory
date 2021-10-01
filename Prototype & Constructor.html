@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prototype</title>
+    <script>
+        let obg1 = {
+            key1: 1
+        }
+
+        function Obg2(name){
+            this.name = name;
+        }
+
+        Obg2.prototype = obg1;
+
+        let obg2 = new Obg2();
+
+        console.log(obg2.key1); 
+
+        //
+
+        function Obg4(name){
+            this.name = name;
+            console.log(name);
+        }
+
+        let obg4 = new Obg4("Obg4");
+
+        let obg4Con = new obg4.constructor("Obg4Con");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
