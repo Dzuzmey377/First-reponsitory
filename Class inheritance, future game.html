@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class inheritance</title>
+    <script>
+        class Topers {
+            constructor(grA, grB, grC, topPL, plDM, plF){
+                this.grA = grA;
+                this.grB = grB;
+                this.grC = grC;
+                this.topPL = topPL;
+                this.plDM = plDM;
+                this.plF = plF;
+            }
+
+            top1Pl(){
+                alert(`Топ 1 игрок: ${this.topPL}`);
+            }
+
+            liders(){
+                alert(`Лидеры этого года: ${this.grB}`);
+            }
+
+            disM(){
+                alert(`Исключаются игроки: ${this.plDM}`);
+            }
+        }
+
+        class Penalty extends Topers { //extends как prototype
+            PnPl(){
+                alert(`Оштрафован игрок: ${this.plF}`);
+            }
+        }
+
+        let resaltOfTheYear = new Penalty("Команда A", "Команда B", "Команда C", "номер 7", "4, 16, 29", "18");
+        function res(){
+            resaltOfTheYear.top1Pl();
+            resaltOfTheYear.liders();
+            resaltOfTheYear.disM();
+            resaltOfTheYear.PnPl();
+        }
+    </script>
+</head>
+<body>
+    Итоги этого года: <button onclick="res()">Смотреть</button>
+</body>
+</html>
