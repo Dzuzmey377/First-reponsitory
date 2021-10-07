@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Геттеры и Сеттеры</title>
+    <script>
+        let user = {
+            key1: "val1",
+            key2: "val2",
+
+            get keyMore() {
+                return `${this.key1} ${this.key2}`;
+            },
+
+            set keyMore(value) {
+                [this.key1, this.key2] = value.split(" ");
+            }
+        };
+
+        user.keyMore = "Something1 Something2";
+
+        alert(user.key1);
+        alert(user.key2);
+    </script>
+</head>
+</html>
