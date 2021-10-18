@@ -2,39 +2,35 @@
 <html>
 <head>
     <title>Array methods</title>
-    <style>
-        #div1{
-            font-size: 30px;
-        }
-    </style>
 </head>
 <body>
+    <h2>
+        <div id="div1"></div>
+        <div id="div2"></div>
+    </h2>
+    <button onclick="mMap()">Посмотреть длинну элементов</button>
+    <button onclick="rV()">Перевернуть</button>
+    <button onclick="sPL()">Присоединить</button>
     <script>
-            let arr = ['Apple', 'Banana', 'Cherry'];  
-            
-            function array(){
-                document.getElementById("div1").innerHTML = arr;
-            }
+        let arr = [" Клинок 'Циклонов' ", " Броня 'Героуса' ", " 'Метательный пинг' ", ""];
 
-            function Arr(){
-                let prm = prompt("Какой вы хотите добавить элемент?");
-                if(prm){
-                    arr.push(prm);
-                    alert("Элемент добавляен!");
-                }
-                else if(prm == "No" || "no" || "Нет" || "нет") {
-                    alert("Элемент не добавлен");
-                    return false;
-                }
-                else{
-                    alert("Ответ непонятен");
-                    return false;
-                }
-                document.getElementById("div1").innerHTML = arr;
-            }
+        function mMap() {
+            let rr = arr.map(item => item.length);
+            document.getElementById("div2").innerHTML = rr;
+        }
+
+        function rV() {
+            arr.reverse();
+            document.getElementById("div1").innerHTML = arr;
+        }
+
+        function sPL() {
+            let pt = prompt("Напишите символ или слово, которое хотите присоединить к элементам");
+            let jn = arr.join(pt);
+            document.getElementById("div1").innerHTML = jn;
+        }
+
+        document.getElementById("div1").innerHTML = arr;
     </script>
-    <div id="div1"></div>
-    <button onclick="array()">Показать элементы</button><br /><br />
-    <button onclick="Arr()">Добавить элемент</button>
 </body>
 </html>
