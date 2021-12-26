@@ -48,9 +48,7 @@
             50% {
                 top: 70px;
             }
-            80% {
-                top: 130px;
-            }
+           
             100% {
                 top: 150px;
             }
@@ -66,7 +64,7 @@
         const dino = document.getElementById("dino");
         const cactus = document.getElementById("cactus");
 
-        document.addEventListener("keydown", function(event) {
+        document.addEventListener("keydown", function() {
             jump();
         });
 
@@ -80,14 +78,15 @@
         }
 
         let isAlive = setInterval ( function() {
-            let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
-            let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
+            let dinoTop = parseInt(window.getComputedStyle(dino).top);
+            let cactusLeft = parseInt(window.getComputedStyle(cactus).left);
+            let rar = "Поздравляю! Ты стал ботаном!";
 
             if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
-                alert("Поздравляю! Ты стал ботаном!");
+                alert(rar);
             }
         }, 10);
-        
+
     </script>
 </body>
 </html>
