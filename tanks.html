@@ -14,9 +14,14 @@
             background-color: black;
             width: 1040px;
             height: 679px;
-            left: 80px;
             margin: auto;
         }
+
+        #tank {
+     		cursor: pointer;
+			position: absolute;
+            left: 250px;
+    	}
 
         .elemAll {
             width: 80px;
@@ -133,7 +138,10 @@
     </style>
 </head>
 <body>
+     
     <div class="platform">
+        <div id="tank"><img src="Green Tank.png"></div>
+
         <div class="elemAll" style="left: 328px;">
             <div class="kirp"></div>
             <div class="kirp"></div>
@@ -607,7 +615,158 @@
     </div>
     
     <script>
+        let left = 250;
+		let topP = 0;
 
+		let bool = true;
+		let bool2 = true;
+		let bool3 = true;
+		let bool4 = true;
+
+        let tank = document.getElementById("tank");
+        
+        let platform = document.querySelector(".platform");
+        let kirps = document.querySelectorAll('div.kirp');
+            
+        
+        
+            document.addEventListener("keydown", function(event) {
+            
+            
+            if(event.code == "KeyD" && bool == true){
+                tank.style.transform = "rotate(90deg)";
+                let anim = function() {
+                    left += 7.5;
+                    tank.style.left = left + "px";
+                    let rAn = requestAnimationFrame(anim);
+                    bool = false;
+                    setInterval(function() {
+                        if(parseInt(window.getComputedStyle(tank).left) >= parseInt(window.getComputedStyle(platform).marginLeft) + 980){
+                            left = parseInt(window.getComputedStyle(platform).marginLeft) + 980;
+                        }
+                    }, 1);
+                    for(let kirp of kirps){
+                        let kirpXY = kirp.getBoundingClientRect();
+
+                        if(parseInt(window.getComputedStyle(tank).left) >= parseInt(kirpXY.x) - 50 &&
+                            parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
+                            parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 10 &&
+                            parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 40){
+                                tank.style.left = (parseInt(kirpXY.x) - 50) + "px";
+                                left = parseInt(kirpXY.x) - 50;
+                        }
+                    }
+                    document.addEventListener("keyup", function(event) {
+                        if(event.code == "KeyD"){
+                            cancelAnimationFrame(rAn);
+                            bool = true;
+                        }
+                    });
+            }
+            anim();
+            }	
+            else if(event.code == "KeyS" && bool2 == true){
+                tank.style.transform = "rotate(180deg)";
+                let anim2 = function() {
+                    topP += 7.5;
+                    tank.style.top = topP + "px";
+                    let rAn2 = requestAnimationFrame(anim2);
+                    bool2 = false;
+                    setInterval(function() {
+                        if(parseInt(window.getComputedStyle(tank).top) >= parseInt(window.getComputedStyle(platform).marginTop) + 629){
+                            topP = parseInt(window.getComputedStyle(platform).marginTop) + 629;
+                        }
+                    }, 1);
+                    for(let kirp of kirps){
+                        let kirpXY = kirp.getBoundingClientRect();
+
+                        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 50 &&
+                            parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
+                            parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
+                            parseInt(window.getComputedStyle(tank).top) >= parseInt(kirpXY.y) - 50){
+                                tank.style.top = (parseInt(kirpXY.y) - 50) + "px";
+                                topP = parseInt(kirpXY.y) - 50;
+                        }
+                    }
+                    document.addEventListener("keyup", function(event) {
+                        if(event.code == "KeyS"){
+                            cancelAnimationFrame(rAn2);
+                            bool2 = true;
+                        }
+                    });
+                }
+                anim2();
+            }
+            else if(event.code == "KeyW" && bool3 == true){
+                tank.style.transform = "rotate(0deg)";
+                let anim3 = function() {
+                    topP -= 7.5;
+                    tank.style.top = topP + "px";
+                    let rAn3 = requestAnimationFrame(anim3);
+                    bool3 = false;
+                    setInterval(function() {
+                        if(parseInt(window.getComputedStyle(tank).top) <= parseInt(window.getComputedStyle(platform).marginTop) + 20){
+                            topP = parseInt(window.getComputedStyle(platform).marginTop) + 20;
+                        }
+                    }, 1);
+                    for(let kirp of kirps){
+                        let kirpXY = kirp.getBoundingClientRect();
+
+                        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 50 &&
+                            parseInt(window.getComputedStyle(tank).top) <= parseInt(kirpXY.y) + 13 &&
+                            parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
+                            parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 13){
+                                tank.style.top = (parseInt(kirpXY.y) + 13) + "px";
+                                topP = parseInt(kirpXY.y) + 13;
+                        }
+                    }
+                    document.addEventListener("keyup", function(event) {
+                        if(event.code == "KeyW"){
+                            cancelAnimationFrame(rAn3);
+                            bool3 = true;
+                        }
+                    });
+                }
+                anim3();
+            }
+            else if(event.code == "KeyA" && bool4 == true){
+                tank.style.transform = "rotate(270deg)";
+                let anim4 = function() {
+                    left -= 7.5;
+                    tank.style.left = left + "px";
+                    let rAn4 = requestAnimationFrame(anim4);
+                    bool4 = false;
+                    setInterval(function() {
+						if(parseInt(window.getComputedStyle(tank).left) <= parseInt(window.getComputedStyle(platform).marginLeft) + 10){
+							left = parseInt(window.getComputedStyle(platform).marginLeft) + 10;
+						}
+					}, 1);
+                    for(let kirp of kirps){
+                        let kirpXY = kirp.getBoundingClientRect();
+            
+                        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 50 &&
+                            parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
+                            parseInt(window.getComputedStyle(tank).left) <= parseInt(kirpXY.x) + 40 &&
+                            parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 13){
+                                tank.style.left = (parseInt(kirpXY.x) + 40) + "px";
+                                left = parseInt(kirpXY.x) + 40;
+                        }
+                    }
+                    document.addEventListener("keyup", function(event) {
+                        if(event.code == "KeyA"){
+                            cancelAnimationFrame(rAn4);
+                            bool4 = true;
+                        }
+                    });
+                }
+                anim4();
+            }
+            
+            });
+       
+        
+
+       
     </script>
 </body>
 </html>
