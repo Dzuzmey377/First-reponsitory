@@ -135,12 +135,31 @@
             display: block;
             float: left;
         }
+
+        .pul1 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			display: none;
+		}
+
+        #tankEn1 {
+            position: absolute;
+            left: 1055px;
+            top: 200px;
+        }
     </style>
 </head>
 <body>
-     
+    <div id="pulAll">
+		<div class="pul1">
+			<img src="bullet.png">
+		</div>
+	</div>
     <div class="platform">
         <div id="tank"><img src="Green Tank.png"></div>
+
+        <div id="tankEn1"><img src="tankEn.png"></div>
 
         <div class="elemAll" style="left: 328px;">
             <div class="kirp"></div>
@@ -623,6 +642,8 @@
 		let bool3 = true;
 		let bool4 = true;
 
+        let numD = 1;
+
         let tank = document.getElementById("tank");
         
         let platform = document.querySelector(".platform");
@@ -761,6 +782,119 @@
                 }
                 anim4();
             }
+            else if(event.code == "KeyZ"){
+				let pul = document.querySelector(".pul" + numD);
+				numD += 1;
+
+				let newElem = document.createElement("div");
+				newElem.style.position = "absolute";
+				newElem.style.display = "none";
+				newElem.classList.add("pul" + numD);
+				document.getElementById("pulAll").appendChild(newElem);
+
+				let elemDivD = document.createElement("img");
+				elemDivD.src = "bullet.png";
+				document.querySelector(".pul" + numD).appendChild(elemDivD);
+			
+				function fun(){
+					if(tank.style.transform == "rotate(90deg)"){
+						let tL = parseInt(window.getComputedStyle(tank).left) + 30;
+						let tT = parseInt(window.getComputedStyle(tank).top) + 13;
+
+						pul.style.transform = "rotate(90deg)";
+
+						pul.style.display = "block";
+
+						pul.style.left = tL + "px";
+						pul.style.top = tT + "px";
+
+						let pxL = parseInt(tank.style.left) + 30;
+						let num = 0;
+						let an1 = function(){	
+							pxL += 20;	
+							num += 20;
+							pul.style.left = pxL + "px";
+							let ran1 = requestAnimationFrame(an1);
+							if(num >= 620){
+								cancelAnimationFrame(ran1);
+								pul.remove();
+							}
+						}
+						an1();
+					}
+					else if(tank.style.transform == "rotate(0deg)"){
+						let tL = parseInt(tank.style.left) + 30;
+						let tT = parseInt(tank.style.top) + 15;
+
+						pul.style.display = "block";
+
+						pul.style.left = tL + "px";
+
+						let pxL = parseInt(tank.style.top) + 15;
+						let num = 0;
+						let an1 = function(){	
+							pxL -= 20;	
+							num += 20;
+							pul.style.top = pxL + "px";
+							let ran1 = requestAnimationFrame(an1);
+							if(num >= 620){
+								cancelAnimationFrame(ran1);
+								pul.remove();
+							}
+						}
+						an1();
+					}	
+					else if(tank.style.transform == "rotate(180deg)"){
+						let tL = parseInt(tank.style.left) + 30;
+						let tT = parseInt(tank.style.top) + 13;
+
+						pul.style.transform = "rotate(180deg)";
+						pul.style.display = "block";
+
+						pul.style.left = tL + "px";
+						pul.style.top = tT + "px";
+
+						let pxL = parseInt(tank.style.top) + 13;
+						let num = 0;
+						let an1 = function(){	
+							pxL += 20;	
+							num += 20;
+							pul.style.top = pxL + "px";
+							let ran1 = requestAnimationFrame(an1);
+							if(num >= 620){
+								cancelAnimationFrame(ran1);
+								pul.remove();
+							}
+						}
+						an1();
+					}
+					else if(tank.style.transform == "rotate(270deg)"){
+						let tL = parseInt(tank.style.left) + 32;
+						let tT = parseInt(tank.style.top) + 14;
+
+						pul.style.transform = "rotate(270deg)";
+						pul.style.display = "block";
+
+						pul.style.left = tL + "px";
+						pul.style.top = tT + "px";
+
+						let pxL = parseInt(tank.style.left) + 32;
+						let num = 0;
+						let an1 = function(){	
+							pxL -= 20;	
+							num += 20;
+							pul.style.left = pxL + "px";
+							let ran1 = requestAnimationFrame(an1);
+							if(num >= 620){
+								cancelAnimationFrame(ran1);
+								pul.remove();
+							}
+						}
+						an1();
+					}
+				}	
+				fun();
+			}
             
             });
        
