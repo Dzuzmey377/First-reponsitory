@@ -143,10 +143,15 @@
 			display: none;
 		}
 
+        #pulAll2 {
+            position: absolute;
+            display: block;
+        }
+
         #tankEn1 {
             position: absolute;
             left: 1055px;
-            top: 200px;
+            top: 296px;
         }
     </style>
 </head>
@@ -156,10 +161,15 @@
 			<img src="bullet.png">
 		</div>
 	</div>
+   
     <div class="platform">
         <div id="tank"><img src="Green Tank.png"></div>
 
-        <div id="tankEn1"><img src="tankEn.png"></div>
+        <div id="tankEn1" style="transform: rotate(0deg);"><img src="tankEn.png"></div>
+
+        <div id="pulAll2">
+            <img src="bullet.png">
+        </div>
 
         <div class="elemAll" style="left: 328px;">
             <div class="kirp"></div>
@@ -641,23 +651,103 @@
 		let bool2 = true;
 		let bool3 = true;
 		let bool4 = true;
-
+        let pulZam = true;
+        
         let numD = 1;
+        let numA = true;
+        let leftTop = 0;
+
+        let dam;
 
         let tank = document.getElementById("tank");
+        let tankEn1 = document.getElementById("tankEn1");
         
         let platform = document.querySelector(".platform");
         let kirps = document.querySelectorAll('div.kirp');
+
+        let pulAll2 = document.getElementById("pulAll2");
+
+        setInterval(function(){
+            tankEn1.style.transitionDuration = "2s";
+            tankEn1.style.transitionTimingFunction = "linear";
+            tankEn1.style.top = "50px";
+            setTimeout(() => {
+                tankEn1.style.transitionDuration = "0s";
+                tankEn1.style.transform = "rotate(180deg)";
+            }, 2000);
+            setTimeout(() => {
+                tankEn1.style.transitionDuration = "2s";
+                tankEn1.style.top = "296px";
+            }, 2050);
+            setTimeout(() => {
+                tankEn1.style.transitionDuration = "0s";
+                tankEn1.style.transform = "rotate(0deg)";
+            }, 4050);
+        }, 4150);
+
+        dam = setInterval(function(){
+            if(numA == true){
+                let tL = parseInt(window.getComputedStyle(tank).left);
+                let tT = parseInt(window.getComputedStyle(tank).top);
+                let tL2 = parseInt(window.getComputedStyle(tankEn1).left) + 30;
+                let tT2 = parseInt(window.getComputedStyle(tankEn1).top) - 10;
+                let tT3 = parseInt(window.getComputedStyle(tankEn1).top) + 50;
+
+                if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT <= tT2){
+                    if(tankEn1.style.transform == "rotate(0deg)"){
+                        pulAll2.style.left = tL2 + "px";
+                        pulAll2.style.top = tT2 + "px";
+                        
+                        numA = false;
+
+                        let num = 0;
+                        let an1 = function(){	
+                            tT2 -= 5;	
+                            num += 5;
+                            pulAll2.style.top = tT2 + "px";
+                            let ran1 = requestAnimationFrame(an1);
+                            if(num >= 800){
+                                pulAll2.style.left = tL2 + "px";
+                                pulAll2.style.top = tT2 + "px";
+                            }
+                        }
+                        an1();
+                        setTimeout(() => {numA = true}, 2000);
+                    } 
+                }  
+                else if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT >= tT2){
+                    if(tankEn1.style.transform == "rotate(180deg)"){
+                        pulAll2.style.left = tL2 + "px";
+                        pulAll2.style.top = tT3 + "px";
+
+                        pulAll2.style.transform = "scale(1, -1)";
+                        
+                        numA = false;
+
+                        let num = 0;
+                        let an1 = function(){	
+                            tT3 += 5;	
+                            num += 5;
+                            pulAll2.style.top = tT3 + "px";
+                            let ran1 = requestAnimationFrame(an1);
+                            if(num >= 800){
+                                pulAll2.style.left = tL2 + "px";
+                                pulAll2.style.top = tT3 + "px";
+                            }
+                        }
+                        an1();
+                        setTimeout(() => {numA = true}, 2000);
+                    }
+                }    
+            }
             
-        
-        
-            document.addEventListener("keydown", function(event) {
-            
+        }, 10); 
+        document.addEventListener("keydown", function(event) {
             
             if(event.code == "KeyD" && bool == true){
                 tank.style.transform = "rotate(90deg)";
                 let anim = function() {
-                    left += 7.5;
+                    left += 5;
                     tank.style.left = left + "px";
                     let rAn = requestAnimationFrame(anim);
                     bool = false;
@@ -689,7 +779,7 @@
             else if(event.code == "KeyS" && bool2 == true){
                 tank.style.transform = "rotate(180deg)";
                 let anim2 = function() {
-                    topP += 7.5;
+                    topP += 5;
                     tank.style.top = topP + "px";
                     let rAn2 = requestAnimationFrame(anim2);
                     bool2 = false;
@@ -721,7 +811,7 @@
             else if(event.code == "KeyW" && bool3 == true){
                 tank.style.transform = "rotate(0deg)";
                 let anim3 = function() {
-                    topP -= 7.5;
+                    topP -= 5;
                     tank.style.top = topP + "px";
                     let rAn3 = requestAnimationFrame(anim3);
                     bool3 = false;
@@ -753,7 +843,7 @@
             else if(event.code == "KeyA" && bool4 == true){
                 tank.style.transform = "rotate(270deg)";
                 let anim4 = function() {
-                    left -= 7.5;
+                    left -= 5;
                     tank.style.left = left + "px";
                     let rAn4 = requestAnimationFrame(anim4);
                     bool4 = false;
@@ -782,20 +872,24 @@
                 }
                 anim4();
             }
-            else if(event.code == "KeyZ"){
-				let pul = document.querySelector(".pul" + numD);
-				numD += 1;
+            else if(event.key == "Shift" && pulZam == true){
+                pulZam = false;
+                setTimeout(function(){
+                    pulZam = true;
+                }, 1500);
+                let pul = document.querySelector(".pul" + numD);
+                numD += 1;
 
 				let newElem = document.createElement("div");
 				newElem.style.position = "absolute";
 				newElem.style.display = "none";
 				newElem.classList.add("pul" + numD);
-				document.getElementById("pulAll").appendChild(newElem);
+			    document.getElementById("pulAll").appendChild(newElem);
 
 				let elemDivD = document.createElement("img");
 				elemDivD.src = "bullet.png";
 				document.querySelector(".pul" + numD).appendChild(elemDivD);
-			
+				
 				function fun(){
 					if(tank.style.transform == "rotate(90deg)"){
 						let tL = parseInt(window.getComputedStyle(tank).left) + 30;
@@ -894,13 +988,9 @@
 					}
 				}	
 				fun();
-			}
-            
-            });
-       
-        
-
-       
+            }
+				   
+        });
     </script>
 </body>
 </html>
