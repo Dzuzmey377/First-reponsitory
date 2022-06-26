@@ -145,7 +145,7 @@
 
         #pulAll2 {
             position: absolute;
-            display: block;
+            display: none;
         }
 
         #tankEn1 {
@@ -695,6 +695,8 @@
 
                 if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT <= tT2){
                     if(tankEn1.style.transform == "rotate(0deg)"){
+                        pulAll2.style.display = "block";
+
                         pulAll2.style.left = tL2 + "px";
                         pulAll2.style.top = tT2 + "px";
                         
@@ -717,6 +719,8 @@
                 }  
                 else if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT >= tT2){
                     if(tankEn1.style.transform == "rotate(180deg)"){
+                        pulAll2.style.display = "block";
+
                         pulAll2.style.left = tL2 + "px";
                         pulAll2.style.top = tT3 + "px";
 
@@ -740,8 +744,28 @@
                     }
                 }    
             }
-            
         }, 10); 
+
+        let stttt = true;
+
+        let setTT;
+
+        
+        setTT = setInterval(function(){
+            if(stttt == true){
+                if(parseInt(window.getComputedStyle(pulAll2).left) >= parseInt(window.getComputedStyle(tank).left)-5 &&
+                parseInt(window.getComputedStyle(pulAll2).left) <= parseInt(window.getComputedStyle(tank).left)+65 &&
+                parseInt(window.getComputedStyle(pulAll2).top) >= parseInt(window.getComputedStyle(tank).top)-11 &&
+                parseInt(window.getComputedStyle(pulAll2).top) <= parseInt(window.getComputedStyle(tank).top)+42){
+                    console.log("Попали в мой танк");
+                    pulAll2.style.display = "none";
+                    stttt = false;
+                    setTimeout(() => {stttt = true}, 1000);
+                }
+            }
+        }, 10);
+        
+
         document.addEventListener("keydown", function(event) {
             
             if(event.code == "KeyD" && bool == true){
@@ -880,6 +904,8 @@
                 let pul = document.querySelector(".pul" + numD);
                 numD += 1;
 
+                pul.style.display = "block";
+
 				let newElem = document.createElement("div");
 				newElem.style.position = "absolute";
 				newElem.style.display = "none";
@@ -889,9 +915,22 @@
 				let elemDivD = document.createElement("img");
 				elemDivD.src = "bullet.png";
 				document.querySelector(".pul" + numD).appendChild(elemDivD);
-				
+                
 				function fun(){
 					if(tank.style.transform == "rotate(90deg)"){
+                        let setT;
+
+                        setT = setInterval(function(){
+                            if(parseInt(window.getComputedStyle(pul).left) >= parseInt(window.getComputedStyle(tankEn1).left)-11 &&
+                            parseInt(window.getComputedStyle(pul).left) <= parseInt(window.getComputedStyle(tankEn1).left)+65 &&
+                            parseInt(window.getComputedStyle(pul).top) >= parseInt(window.getComputedStyle(tankEn1).top)-5 &&
+                            parseInt(window.getComputedStyle(pul).top) <= parseInt(window.getComputedStyle(tankEn1).top)+42){
+                                console.log("Попал во врага");
+                                pul.style.display = "none";
+                                clearInterval(setT);
+                            }
+                        }, 10);
+
 						let tL = parseInt(window.getComputedStyle(tank).left) + 30;
 						let tT = parseInt(window.getComputedStyle(tank).top) + 13;
 
@@ -917,6 +956,19 @@
 						an1();
 					}
 					else if(tank.style.transform == "rotate(0deg)"){
+                        let setT;
+
+                        setT = setInterval(function(){
+                            if(parseInt(window.getComputedStyle(pul).left) >= parseInt(window.getComputedStyle(tankEn1).left)-5 &&
+                            parseInt(window.getComputedStyle(pul).left) <= parseInt(window.getComputedStyle(tankEn1).left)+65 &&
+                            parseInt(window.getComputedStyle(pul).top) >= parseInt(window.getComputedStyle(tankEn1).top)-11 &&
+                            parseInt(window.getComputedStyle(pul).top) <= parseInt(window.getComputedStyle(tankEn1).top)+42){
+                                console.log("Попал во врага");
+                                pul.style.display = "none";
+                                clearInterval(setT);
+                            }
+                        }, 10);
+
 						let tL = parseInt(tank.style.left) + 30;
 						let tT = parseInt(tank.style.top) + 15;
 
@@ -939,6 +991,19 @@
 						an1();
 					}	
 					else if(tank.style.transform == "rotate(180deg)"){
+                        let setT;
+
+                        setT = setInterval(function(){
+                            if(parseInt(window.getComputedStyle(pul).left) >= parseInt(window.getComputedStyle(tankEn1).left)-5 &&
+                            parseInt(window.getComputedStyle(pul).left) <= parseInt(window.getComputedStyle(tankEn1).left)+65 &&
+                            parseInt(window.getComputedStyle(pul).top) >= parseInt(window.getComputedStyle(tankEn1).top)-11 &&
+                            parseInt(window.getComputedStyle(pul).top) <= parseInt(window.getComputedStyle(tankEn1).top)+42){
+                                console.log("Попал во врага");
+                                pul.style.display = "none";
+                                clearInterval(setT);
+                            }
+                        }, 10);
+
 						let tL = parseInt(tank.style.left) + 30;
 						let tT = parseInt(tank.style.top) + 13;
 
@@ -963,6 +1028,19 @@
 						an1();
 					}
 					else if(tank.style.transform == "rotate(270deg)"){
+                        let setT;
+
+                        setT = setInterval(function(){
+                            if(parseInt(window.getComputedStyle(pul).left) >= parseInt(window.getComputedStyle(tankEn1).left)-11 &&
+                            parseInt(window.getComputedStyle(pul).left) <= parseInt(window.getComputedStyle(tankEn1).left)+65 &&
+                            parseInt(window.getComputedStyle(pul).top) >= parseInt(window.getComputedStyle(tankEn1).top)-5 &&
+                            parseInt(window.getComputedStyle(pul).top) <= parseInt(window.getComputedStyle(tankEn1).top)+42){
+                                console.log("Попал во врага");
+                                pul.style.display = "none";
+                                clearInterval(setT);
+                            }
+                        }, 10);
+
 						let tL = parseInt(tank.style.left) + 32;
 						let tT = parseInt(tank.style.top) + 14;
 
