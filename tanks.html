@@ -142,8 +142,6 @@
 
         .pul1 {
 			position: absolute;
-			top: 0px;
-			left: 0px;
 			display: none;
 		}
 
@@ -975,8 +973,8 @@
                             }
                         }, 10);
 
-						let tL = parseInt(tank.style.left) + 30;
-						let tT = parseInt(tank.style.top) + 15;
+						let tL = parseInt(window.getComputedStyle(tank).left) + 20;
+						let tT = parseInt(window.getComputedStyle(tank).top) + 15;
 
 						pul.style.display = "block";
 
@@ -1010,8 +1008,8 @@
                             }
                         }, 10);
 
-						let tL = parseInt(tank.style.left) + 30;
-						let tT = parseInt(tank.style.top) + 13;
+						let tL = parseInt(window.getComputedStyle(tank).left) + 20;
+						let tT = parseInt(window.getComputedStyle(tank).top) + 13;
 
 						pul.style.transform = "rotate(180deg)";
 						pul.style.display = "block";
@@ -1047,8 +1045,8 @@
                             }
                         }, 10);
 
-						let tL = parseInt(tank.style.left) + 32;
-						let tT = parseInt(tank.style.top) + 14;
+						let tL = parseInt(window.getComputedStyle(tank).left) + 32;
+						let tT = parseInt(window.getComputedStyle(tank).top) + 14;
 
 						pul.style.transform = "rotate(270deg)";
 						pul.style.display = "block";
