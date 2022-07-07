@@ -152,10 +152,13 @@
 
         #tankEn1 {
             position: absolute;
-            left: 1055px;
+            left: 1065px;
             top: 296px;
+            width: 48px;
+            height: 48px;
         }
     </style>
+    
 </head>
 <body>
     <div id="pulAll">
@@ -169,7 +172,7 @@
             <img src="Green Tank.png" width="48" height="48">
         </div>
 
-        <div id="tankEn1" style="transform: rotate(0deg);"><img src="tankEn.png"></div>
+        <div id="tankEn1" style="transform: rotate(0deg);"><img src="tankEn.png" width="48" height="48"></div>
 
         <div id="pulAll2">
             <img src="bullet.png">
@@ -651,6 +654,9 @@
         let left = 250;
 		let topP = 0;
 
+        let left2 = 1055;
+		let topP2 = 296;
+
 		let bool = true;
 		let bool2 = true;
 		let bool3 = true;
@@ -663,6 +669,8 @@
 
         let dam;
 
+        let st = "left";
+
         let tank = document.getElementById("tank");
         let tankEn1 = document.getElementById("tankEn1");
         
@@ -671,31 +679,14 @@
 
         let pulAll2 = document.getElementById("pulAll2");
 
-        setInterval(function(){
-            tankEn1.style.transitionDuration = "2s";
-            tankEn1.style.transitionTimingFunction = "linear";
-            tankEn1.style.top = "50px";
-            setTimeout(() => {
-                tankEn1.style.transitionDuration = "0s";
-                tankEn1.style.transform = "rotate(180deg)";
-            }, 2000);
-            setTimeout(() => {
-                tankEn1.style.transitionDuration = "2s";
-                tankEn1.style.top = "296px";
-            }, 2050);
-            setTimeout(() => {
-                tankEn1.style.transitionDuration = "0s";
-                tankEn1.style.transform = "rotate(0deg)";
-            }, 4050);
-        }, 4150);
-
         dam = setInterval(function(){
             if(numA == true){
                 let tL = parseInt(window.getComputedStyle(tank).left);
                 let tT = parseInt(window.getComputedStyle(tank).top);
-                let tL2 = parseInt(window.getComputedStyle(tankEn1).left) + 30;
+                let tL2 = parseInt(window.getComputedStyle(tankEn1).left) + 22;
                 let tT2 = parseInt(window.getComputedStyle(tankEn1).top) - 10;
                 let tT3 = parseInt(window.getComputedStyle(tankEn1).top) + 50;
+                let tT4 = parseInt(window.getComputedStyle(tankEn1).top) + 17;
 
                 if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT <= tT2){
                     if(tankEn1.style.transform == "rotate(0deg)"){
@@ -703,16 +694,20 @@
 
                         pulAll2.style.left = tL2 + "px";
                         pulAll2.style.top = tT2 + "px";
+
+                        pulAll2.style.transform = "rotate(0deg)";
                         
                         numA = false;
 
                         let num = 0;
                         let an1 = function(){	
-                            tT2 -= 5;	
-                            num += 5;
+                            tT2 -= 10;	
+                            num += 10;
                             pulAll2.style.top = tT2 + "px";
                             let ran1 = requestAnimationFrame(an1);
                             if(num >= 800){
+                                cancelAnimationFrame(ran1);
+                                pulAll2.style.display = "none";
                                 pulAll2.style.left = tL2 + "px";
                                 pulAll2.style.top = tT2 + "px";
                             }
@@ -728,17 +723,19 @@
                         pulAll2.style.left = tL2 + "px";
                         pulAll2.style.top = tT3 + "px";
 
-                        pulAll2.style.transform = "scale(1, -1)";
+                        pulAll2.style.transform = "rotate(180deg)";
                         
                         numA = false;
 
                         let num = 0;
                         let an1 = function(){	
-                            tT3 += 5;	
-                            num += 5;
+                            tT3 += 15;	
+                            num += 15;
                             pulAll2.style.top = tT3 + "px";
                             let ran1 = requestAnimationFrame(an1);
                             if(num >= 800){
+                                cancelAnimationFrame(ran1);
+                                pulAll2.style.display = "none";
                                 pulAll2.style.left = tL2 + "px";
                                 pulAll2.style.top = tT3 + "px";
                             }
@@ -747,13 +744,68 @@
                         setTimeout(() => {numA = true}, 2000);
                     }
                 }    
+                else if(tL < tL2 && tT >= tT2 - 48 && tT <= tT2 + 48){
+                    if(tankEn1.style.transform == "rotate(270deg)"){
+                        pulAll2.style.display = "block";
+
+                        pulAll2.style.left = tL2 + "px";
+                        pulAll2.style.top = tT4 + "px";
+
+                        pulAll2.style.transform = "rotate(270deg)";
+                        
+                        numA = false;
+
+                        let num = 0;
+                        let an1 = function(){	
+                            tL2 -= 15;	
+                            num += 15;
+                            pulAll2.style.left = tL2 + "px";
+                            let ran1 = requestAnimationFrame(an1);
+                            if(num >= 1500){
+                                cancelAnimationFrame(ran1);
+                                pulAll2.style.display = "none";
+                                pulAll2.style.left = tL2 + "px";
+                                pulAll2.style.top = tT4 + "px";
+                            }
+                        }
+                        an1();
+                        setTimeout(() => {numA = true}, 2000);
+                    }
+                }  
+                else if(tL > tL2 && tT >= tT2 - 48 && tT <= tT2 + 48){
+                    if(tankEn1.style.transform == "rotate(90deg)"){
+                        pulAll2.style.display = "block";
+
+                        pulAll2.style.left = tL2 + "px";
+                        pulAll2.style.top = tT4 + "px";
+
+                        pulAll2.style.transform = "rotate(90deg)";
+                        
+                        numA = false;
+
+                        let num = 0;
+                        let an1 = function(){	
+                            tL2 += 15;	
+                            num += 15;
+                            pulAll2.style.left = tL2 + "px";
+                            let ran1 = requestAnimationFrame(an1);
+                            if(num >= 1500){
+                                cancelAnimationFrame(ran1);
+                                pulAll2.style.display = "none";
+                                pulAll2.style.left = tL2 + "px";
+                                pulAll2.style.top = tT4 + "px";
+                            }
+                        }
+                        an1();
+                        setTimeout(() => {numA = true}, 2000);
+                    }
+                }  
             }
         }, 10); 
 
         let stttt = true;
 
         let setTT;
-
         
         setTT = setInterval(function(){
             if(stttt == true){
@@ -768,7 +820,6 @@
                 }
             }
         }, 10);
-        
 
         document.addEventListener("keydown", function(event) {
             
@@ -948,8 +999,8 @@
 						let pxL = parseInt(tank.style.left) + 30;
 						let num = 0;
 						let an1 = function(){	
-							pxL += 20;	
-							num += 20;
+							pxL += 15;	
+							num += 15;
 							pul.style.left = pxL + "px";
 							let ran1 = requestAnimationFrame(an1);
 							if(num >= 980){
@@ -983,8 +1034,8 @@
 						let pxL = parseInt(tank.style.top) + 15;
 						let num = 0;
 						let an1 = function(){	
-							pxL -= 20;	
-							num += 20;
+							pxL -= 15;	
+							num += 15;
 							pul.style.top = pxL + "px";
 							let ran1 = requestAnimationFrame(an1);
 							if(num >= 620){
@@ -1020,8 +1071,8 @@
 						let pxL = parseInt(tank.style.top) + 13;
 						let num = 0;
 						let an1 = function(){	
-							pxL += 20;	
-							num += 20;
+							pxL += 15;	
+							num += 15;
 							pul.style.top = pxL + "px";
 							let ran1 = requestAnimationFrame(an1);
 							if(num >= 620){
@@ -1057,8 +1108,8 @@
 						let pxL = parseInt(tank.style.left) + 32;
 						let num = 0;
 						let an1 = function(){	
-							pxL -= 20;	
-							num += 20;
+							pxL -= 15;	
+							num += 15;
 							pul.style.left = pxL + "px";
 							let ran1 = requestAnimationFrame(an1);
 							if(num >= 980){
@@ -1074,5 +1125,6 @@
 				   
         });
     </script>
+    <script src="tanks.js"></script>
 </body>
 </html>
