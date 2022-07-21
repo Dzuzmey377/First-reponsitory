@@ -821,135 +821,135 @@
             }
         }, 10);
 
+        function start(stor, gr, b){
+            tank.style.transform = `rotate(${gr}deg)`;
+                function anim() {
+                    switch (stor) {
+                        case "right":
+                            left += 4;
+                            tank.style.left = left + "px";
+                            break;
+                        case "down":
+                            topP += 4;
+                            tank.style.top = topP + "px";   
+                            break;
+                        case "top":
+                            topP -= 4;
+                            tank.style.top = topP + "px";   
+                            break;
+                        case "left":
+                            left -= 4;
+                            tank.style.left = left + "px";   
+                            break;
+                    }
+                    
+                    let rAn = requestAnimationFrame(anim);
+                    
+                    setInterval(function() {
+                        if(stor == "right") {
+                            if(parseInt(window.getComputedStyle(tank).left) >= parseInt(window.getComputedStyle(platform).marginLeft) + 990){
+                                left = parseInt(window.getComputedStyle(platform).marginLeft) + 990;
+                            }
+                        }
+                        else if(stor == "down") {
+                            if(parseInt(window.getComputedStyle(tank).top) >= parseInt(window.getComputedStyle(platform).marginTop) + 633){
+                                topP = parseInt(window.getComputedStyle(platform).marginTop) + 633;
+                            }
+                        }
+                        else if(stor == "top") {
+                            if(parseInt(window.getComputedStyle(tank).top) <= parseInt(window.getComputedStyle(platform).marginTop) + 15){
+                                topP = parseInt(window.getComputedStyle(platform).marginTop) + 15;
+                            }
+                        }
+                        else if(stor == "left") {
+                            if(parseInt(window.getComputedStyle(tank).left) <= parseInt(window.getComputedStyle(platform).marginLeft) + 15){
+                                left = parseInt(window.getComputedStyle(platform).marginLeft) + 15;
+                            }
+                        }
+                    }, 1);
+                    
+                    for(let kirp of kirps) {
+                        let kirpXY = kirp.getBoundingClientRect();
+                        if(stor == "right") {
+                            if(parseInt(window.getComputedStyle(tank).left) >= parseInt(kirpXY.x) - 48 &&
+                                parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
+                                parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
+                                parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 48) {
+                                    tank.style.left = (parseInt(kirpXY.x) - 50) + "px";
+                                    left = parseInt(kirpXY.x) - 50;
+                            }
+                        }
+                        else if(stor == "down") {
+                            if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
+                                parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
+                                parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
+                                parseInt(window.getComputedStyle(tank).top) >= parseInt(kirpXY.y) - 48){
+                                    tank.style.top = (parseInt(kirpXY.y) - 50) + "px";
+                                    topP = parseInt(kirpXY.y) - 50;
+                            }
+                        }
+                        else if(stor == "top") {
+                            if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
+                                parseInt(window.getComputedStyle(tank).top) <= parseInt(kirpXY.y) + 13 &&
+                                parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
+                                parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 48){
+                                    tank.style.top = (parseInt(kirpXY.y) + 15) + "px";
+                                    topP = parseInt(kirpXY.y) + 15;
+                            }
+                        }
+                        else if(stor == "left") {
+                            if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
+                                parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
+                                parseInt(window.getComputedStyle(tank).left) <= parseInt(kirpXY.x) + 40 &&
+                                parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 48){
+                                    tank.style.left = (parseInt(kirpXY.x) + 42) + "px";
+                                    left = parseInt(kirpXY.x) + 42;
+                                }
+                            }
+                        }
+                       
+                    document.addEventListener("keyup", function(event) {
+                        if(event.code == `Key${b}`) {
+                            cancelAnimationFrame(rAn);
+                            switch (stor) {
+                                case "right":
+                                    bool = true;
+                                    break;
+                                case "down":
+                                    bool2 = true;
+                                    break;
+                                case "top":
+                                    bool3 = true;
+                                    break;
+                                case "left":
+                                    bool4 = true;
+                                    break;
+                            }
+                            
+                        }
+                    });
+                }
+
+                anim();
+        }
+
         document.addEventListener("keydown", function(event) {
             
             if(event.code == "KeyD" && bool == true){
-                tank.style.transform = "rotate(90deg)";
-                let anim = function() {
-                    left += 4;
-                    tank.style.left = left + "px";
-                    let rAn = requestAnimationFrame(anim);
-                    bool = false;
-                    setInterval(function() {
-                        if(parseInt(window.getComputedStyle(tank).left) >= parseInt(window.getComputedStyle(platform).marginLeft) + 990){
-                            left = parseInt(window.getComputedStyle(platform).marginLeft) + 990;
-                        }
-                    }, 1);
-                    for(let kirp of kirps){
-                        let kirpXY = kirp.getBoundingClientRect();
-
-                        if(parseInt(window.getComputedStyle(tank).left) >= parseInt(kirpXY.x) - 48 &&
-                            parseInt(window.getComputedStyle(tank).top) <= parseInt(kirpXY.y) + 13 &&
-                            parseInt(window.getComputedStyle(tank).left) <= parseInt(kirpXY.x) + 40 &&
-                            parseInt(window.getComputedStyle(tank).top) >= parseInt(kirpXY.y) - 48){
-                                tank.style.left = (parseInt(kirpXY.x) - 50) + "px";
-                                left = parseInt(kirpXY.x) - 50;
-                        }
-                    }
-                    document.addEventListener("keyup", function(event) {
-                        if(event.code == "KeyD"){
-                            cancelAnimationFrame(rAn);
-                            bool = true;
-                        }
-                    });
-            }
-            anim();
+                bool = false;
+                start("right", 90, "D");
             }	
             else if(event.code == "KeyS" && bool2 == true){
-                tank.style.transform = "rotate(180deg)";
-                let anim2 = function() {
-                    topP += 4;
-                    tank.style.top = topP + "px";
-                    let rAn2 = requestAnimationFrame(anim2);
-                    bool2 = false;
-                    setInterval(function() {
-                        if(parseInt(window.getComputedStyle(tank).top) >= parseInt(window.getComputedStyle(platform).marginTop) + 633){
-                            topP = parseInt(window.getComputedStyle(platform).marginTop) + 633;
-                        }
-                    }, 1);
-                    for(let kirp of kirps){
-                        let kirpXY = kirp.getBoundingClientRect();
-
-                        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
-                            parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
-                            parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
-                            parseInt(window.getComputedStyle(tank).top) >= parseInt(kirpXY.y) - 48){
-                                tank.style.top = (parseInt(kirpXY.y) - 50) + "px";
-                                topP = parseInt(kirpXY.y) - 50;
-                        }
-                    }
-                    document.addEventListener("keyup", function(event) {
-                        if(event.code == "KeyS"){
-                            cancelAnimationFrame(rAn2);
-                            bool2 = true;
-                        }
-                    });
-                }
-                anim2();
+                bool2 = false;
+                start("down", 180, "S");
             }
             else if(event.code == "KeyW" && bool3 == true){
-                tank.style.transform = "rotate(0deg)";
-                let anim3 = function() {
-                    topP -= 4;
-                    tank.style.top = topP + "px";
-                    let rAn3 = requestAnimationFrame(anim3);
-                    bool3 = false;
-                    setInterval(function() {
-                        if(parseInt(window.getComputedStyle(tank).top) <= parseInt(window.getComputedStyle(platform).marginTop) + 15){
-                            topP = parseInt(window.getComputedStyle(platform).marginTop) + 15;
-                        }
-                    }, 1);
-                    for(let kirp of kirps){
-                        let kirpXY = kirp.getBoundingClientRect();
-
-                        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
-                            parseInt(window.getComputedStyle(tank).top) <= parseInt(kirpXY.y) + 13 &&
-                            parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
-                            parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 48){
-                                tank.style.top = (parseInt(kirpXY.y) + 15) + "px";
-                                topP = parseInt(kirpXY.y) + 15;
-                        }
-                    }
-                    document.addEventListener("keyup", function(event) {
-                        if(event.code == "KeyW"){
-                            cancelAnimationFrame(rAn3);
-                            bool3 = true;
-                        }
-                    });
-                }
-                anim3();
+                bool3 = false;
+                start("top", 0, "W");
             }
             else if(event.code == "KeyA" && bool4 == true){
-                tank.style.transform = "rotate(270deg)";
-                let anim4 = function() {
-                    left -= 4;
-                    tank.style.left = left + "px";
-                    let rAn4 = requestAnimationFrame(anim4);
-                    bool4 = false;
-                    setInterval(function() {
-						if(parseInt(window.getComputedStyle(tank).left) <= parseInt(window.getComputedStyle(platform).marginLeft) + 15){
-							left = parseInt(window.getComputedStyle(platform).marginLeft) + 15;
-						}
-					}, 1);
-                    for(let kirp of kirps){
-                        let kirpXY = kirp.getBoundingClientRect();
-            
-                        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
-                            parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
-                            parseInt(window.getComputedStyle(tank).left) <= parseInt(kirpXY.x) + 40 &&
-                            parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 48){
-                                tank.style.left = (parseInt(kirpXY.x) + 42) + "px";
-                                left = parseInt(kirpXY.x) + 42;
-                        }
-                    }
-                    document.addEventListener("keyup", function(event) {
-                        if(event.code == "KeyA"){
-                            cancelAnimationFrame(rAn4);
-                            bool4 = true;
-                        }
-                    });
-                }
-                anim4();
+                bool4 = false;
+                start("left", 270, "A");
             }
             else if(event.key == "Shift" && pulZam == true){
                 pulZam = false;
