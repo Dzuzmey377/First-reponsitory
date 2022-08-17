@@ -1,41 +1,41 @@
 let boolValueDamEn = true;
 
-dam = setInterval(function(){
+damageEn = setInterval(function(){
     if(boolValueDamEn == true){
-        let tL = parseInt(window.getComputedStyle(tank).left);
-        let tT = parseInt(window.getComputedStyle(tank).top);
-        let tL2 = parseInt(window.getComputedStyle(tankEn1).left) + 22;
-        let tT2 = parseInt(window.getComputedStyle(tankEn1).top) - 10;
-        let tT3 = parseInt(window.getComputedStyle(tankEn1).top) + 50;
-        let tT4 = parseInt(window.getComputedStyle(tankEn1).top) + 17;
+        let tankEn1Left = parseInt(window.getComputedStyle(tank).left);
+        let tankEn1Top = parseInt(window.getComputedStyle(tank).top);
+        let tankEn1Left2 = parseInt(window.getComputedStyle(tankEn1).left) + 22;
+        let tankTop2 = parseInt(window.getComputedStyle(tankEn1).top) - 10;
+        let tankTop3 = parseInt(window.getComputedStyle(tankEn1).top) + 50;
+        let tankTop4 = parseInt(window.getComputedStyle(tankEn1).top) + 17;
 
         function damageEnemy(leftMove, topMove, rotateNum, direction) {
-            pulAll2.style.display = "block";
+            bullet2.style.display = "block";
 
-            pulAll2.style.left = leftMove + "px";
-            pulAll2.style.top = topMove + "px";
+            bullet2.style.left = leftMove + "px";
+            bullet2.style.top = topMove + "px";
 
-            pulAll2.style.transform = `rotate(${rotateNum}deg)`;
+            bullet2.style.transform = `rotate(${rotateNum}deg)`;
                 
             boolValueDamEn = false;
 
             let num = 0;
             let an1 = function() {	
                 if(direction == "top"){
-                    tT2 -= 15;	
-                    pulAll2.style.top = tT2 + "px";
+                    tankTop2 -= 15;	
+                    bullet2.style.top = tankTop2 + "px";
                 }
                 else if(direction == "down") {
-                    tT3 += 15;
-                    pulAll2.style.top = tT3 + "px";
+                    tankTop3 += 15;
+                    bullet2.style.top = tankTop3 + "px";
                 }
                 else if(direction == "left") {
-                    tL2 -= 15;
-                    pulAll2.style.left = tL2 + "px";
+                    tankEn1Left2 -= 15;
+                    bullet2.style.left = tankEn1Left2 + "px";
                 }
                 else if(direction == "right") {
-                    tL2 += 15;
-                    pulAll2.style.left = tL2 + "px";
+                    tankEn1Left2 += 15;
+                    bullet2.style.left = tankEn1Left2 + "px";
                 }
 
                 num += 15;
@@ -43,33 +43,33 @@ dam = setInterval(function(){
                 let ran1 = requestAnimationFrame(an1);
                 if(num >= 800){
                     cancelAnimationFrame(ran1);
-                    pulAll2.style.display = "none";
-                    pulAll2.style.left = tL2 + "px";
-                    pulAll2.style.top = tT2 + "px";
+                    bullet2.style.display = "none";
+                    bullet2.style.left = tankEn1Left2 + "px";
+                    bullet2.style.top = tankTop2 + "px";
                 }
             }
             an1();
             setTimeout(() => {boolValueDamEn = true}, 2000);
         }
 
-        if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT <= tT2){
+        if(tankEn1Left >= tankEn1Left2 - 50 && tankEn1Left <= tankEn1Left2 - 10 && tankEn1Top <= tankTop2){
             if(tankEn1.style.transform == "rotate(0deg)"){
-                damageEnemy(tL2, tT2, 0, "top");
+                damageEnemy(tankEn1Left2, tankTop2, 0, "top");
             } 
         }  
-        else if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT >= tT2){
+        else if(tankEn1Left >= tankEn1Left2 - 50 && tankEn1Left <= tankEn1Left2 - 10 && tankEn1Top >= tankTop2){
             if(tankEn1.style.transform == "rotate(180deg)"){
-                damageEnemy(tL2, tT3, 180, "down");
+                damageEnemy(tankEn1Left2, tankTop3, 180, "down");
             }
         }
-        else if(tL < tL2 && tT >= tT2 - 48 && tT <= tT2 + 48){
+        else if(tankEn1Left < tankEn1Left2 && tankEn1Top >= tankTop2 - 48 && tankEn1Top <= tankTop2 + 48){
             if(tankEn1.style.transform == "rotate(270deg)"){
-                damageEnemy(tL2, tT4, 270, "left");
+                damageEnemy(tankEn1Left2, tankTop4, 270, "left");
             }
         }
-        else if(tL > tL2 && tT >= tT2 - 48 && tT <= tT2 + 48){
+        else if(tankEn1Left > tankEn1Left2 && tankEn1Top >= tankTop2 - 48 && tankEn1Top <= tankTop2 + 48){
             if(tankEn1.style.transform == "rotate(90deg)"){
-                damageEnemy(tL2, tT4, 90, "right");
+                damageEnemy(tankEn1Left2, tankTop4, 90, "right");
             }
         }
     //     else if(tL >= tL2 - 50 && tL <= tL2 - 10 && tT >= tT2){
@@ -163,12 +163,14 @@ let boolValueEnemy = true;
 
 consoleDamEnemy = setInterval(function(){
     if(boolValueEnemy == true){
-        if(parseInt(window.getComputedStyle(pulAll2).left) >= parseInt(window.getComputedStyle(tank).left) - 11 &&
-        parseInt(window.getComputedStyle(pulAll2).left) <= parseInt(window.getComputedStyle(tank).left) + 48 &&
-        parseInt(window.getComputedStyle(pulAll2).top) >= parseInt(window.getComputedStyle(tank).top) - 11 &&
-        parseInt(window.getComputedStyle(pulAll2).top) <= parseInt(window.getComputedStyle(tank).top) + 48) {
+        let bullet2Left = parseInt(window.getComputedStyle(bullet2).left);
+        let bullet2Top = parseInt(window.getComputedStyle(bullet2).top);
+        let tankLeft = parseInt(window.getComputedStyle(tank).left);
+        let tankTop = parseInt(window.getComputedStyle(tank).top);
+
+        if(bullet2Left >= tankLeft - 11 && bullet2Left <= tankLeft + 48 && bullet2Top >= tankTop - 11 && bullet2Top <= tankTop + 48) {
             console.log("Попали в мой танк");
-            pulAll2.style.display = "none";
+            bullet2.style.display = "none";
             boolValueEnemy = false;
             setTimeout(() => {boolValueEnemy = true}, 1000);
         }

@@ -1,56 +1,55 @@
 function damageTank(rotate, leftNum, topNum, direction, direction2) {
-    pulZam = false;
+    bulletEnemy = false;
     setTimeout(function(){
-        pulZam = true;
+        bulletEnemy = true;
     }, 1500);
 
-    let pul = document.querySelector(".pul" + numD);
+    let bullet = document.querySelector(".bullet" + numD);
     numD += 1;
 
-    pul.style.display = "block";
+    bullet.style.display = "block";
 
 	let newElem = document.createElement("div");
 	newElem.style.position = "absolute";
 	newElem.style.display = "none";
-	newElem.classList.add("pul" + numD);
-	document.getElementById("pulAll").appendChild(newElem);
+	newElem.classList.add("bullet" + numD);
+	document.getElementById("bulletAll").appendChild(newElem);
 
 	let elemDivD = document.createElement("img");
 	elemDivD.src = "bullet.png";
-	document.querySelector(".pul" + numD).appendChild(elemDivD);
+	document.querySelector(".bullet" + numD).appendChild(elemDivD);
                 
-	pul.style.transform = `rotate(${rotate}deg)`;
+	bullet.style.transform = `rotate(${rotate}deg)`;
 
     let tL = parseInt(window.getComputedStyle(tank).left) + leftNum;
 	let tT = parseInt(window.getComputedStyle(tank).top) + topNum;
 
-    pul.style.display = "block";
+    bullet.style.display = "block";
 
-    pul.style.left = tL + "px";
-	pul.style.top = tT + "px";
+    bullet.style.left = tL + "px";
+	bullet.style.top = tT + "px";
 
     function consoleDamage(){
         console.log("Попал во врага");
-        pul.style.display = "none";
+        bullet.style.display = "none";
         clearInterval(setT);
     }
 
     let setT;
 
     setT = setInterval(function(){
+        let bulletTop = parseInt(window.getComputedStyle(bullet).top);
+        let bulletLeft = parseInt(window.getComputedStyle(bullet).left);
+        let tankEn1Top = parseInt(window.getComputedStyle(tankEn1).top);
+        let tankEn1Left = parseInt(window.getComputedStyle(tankEn1).left);
+
         if(direction == "left&right") {
-            if(parseInt(window.getComputedStyle(pul).left) >= parseInt(window.getComputedStyle(tankEn1).left)-11 &&
-            parseInt(window.getComputedStyle(pul).left) <= parseInt(window.getComputedStyle(tankEn1).left)+65 &&
-            parseInt(window.getComputedStyle(pul).top) >= parseInt(window.getComputedStyle(tankEn1).top)-5 &&
-            parseInt(window.getComputedStyle(pul).top) <= parseInt(window.getComputedStyle(tankEn1).top)+42){
+            if(bulletLeft >= tankEn1Left - 11 && bulletLeft <= tankEn1Left + 65 && bulletTop >= tankEn1Top - 5 && bulletTop <= tankEn1Top + 42) {
                 consoleDamage();
             }
         }
         else if(direction == "top&down") {
-            if(parseInt(window.getComputedStyle(pul).left) >= parseInt(window.getComputedStyle(tankEn1).left)-5 &&
-            parseInt(window.getComputedStyle(pul).left) <= parseInt(window.getComputedStyle(tankEn1).left)+65 &&
-            parseInt(window.getComputedStyle(pul).top) >= parseInt(window.getComputedStyle(tankEn1).top)-11 &&
-            parseInt(window.getComputedStyle(pul).top) <= parseInt(window.getComputedStyle(tankEn1).top)+42){
+            if(bulletLeft >= tankEn1Left - 5 && bulletLeft <= tankEn1Left + 65 && bulletTop >= tankEn1Top - 11 && bulletTop <= tankEn1Top + 42){
                 consoleDamage();
             }
         }
@@ -65,26 +64,26 @@ function damageTank(rotate, leftNum, topNum, direction, direction2) {
 	let an1 = function() {	
         if(direction2 == "right") {
             pxL += 15;	
-            pul.style.left = pxL + "px";
+            bullet.style.left = pxL + "px";
         }
         else if(direction2 == "down") {
             pxT += 15;	
-            pul.style.top = pxT + "px";
+            bullet.style.top = pxT + "px";
         }
         else if(direction2 == "top") {
             pxT -= 15;	
-            pul.style.top = pxT + "px";
+            bullet.style.top = pxT + "px";
         }
         else if(direction2 == "left") {
             pxL -= 15;	
-            pul.style.left = pxL + "px";
+            bullet.style.left = pxL + "px";
         }
 
         num += 15;
 		let ran1 = requestAnimationFrame(an1);
 		if(num >= 980) {
 			cancelAnimationFrame(ran1);
-			pul.remove();
+			bullet.remove();
 		}
 	}
 

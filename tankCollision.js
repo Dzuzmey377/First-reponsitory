@@ -1,10 +1,11 @@
 function collision(side) {
-    for(let kirp of kirps) {
-        let kirpXY = kirp.getBoundingClientRect();
-        if(parseInt(window.getComputedStyle(tank).left) > parseInt(kirpXY.x) - 48 &&
-            parseInt(window.getComputedStyle(tank).top) < parseInt(kirpXY.y) + 13 &&
-            parseInt(window.getComputedStyle(tank).left) < parseInt(kirpXY.x) + 40 &&
-            parseInt(window.getComputedStyle(tank).top) > parseInt(kirpXY.y) - 48) {
+    for(let bricks of brick) {
+        let kirpXY = bricks.getBoundingClientRect();
+
+        let tankLeft = parseInt(window.getComputedStyle(tank).left);
+        let tankTop = parseInt(window.getComputedStyle(tank).top);
+
+        if(tankLeft > parseInt(kirpXY.x) - 48 && tankTop < parseInt(kirpXY.y) + 13 && tankLeft < parseInt(kirpXY.x) + 40 && tankTop > parseInt(kirpXY.y) - 48) {
                 if(side == "right") {
                     tank.style.left = (parseInt(kirpXY.x) - 50) + "px";
                     left = parseInt(kirpXY.x) - 50;
@@ -26,24 +27,30 @@ function collision(side) {
 }
 
 function collisionGame(sideGame) {
+    let tankTop = parseInt(window.getComputedStyle(tank).top);
+    let tankLeft = parseInt(window.getComputedStyle(tank).left);
+
+    let platformLeft = parseInt(window.getComputedStyle(platform).marginLeft);
+    let platformTop = parseInt(window.getComputedStyle(platform).marginTop);
+
     if(sideGame == "right") {
-        if(parseInt(window.getComputedStyle(tank).left) >= parseInt(window.getComputedStyle(platform).marginLeft) + 990){
-            left = parseInt(window.getComputedStyle(platform).marginLeft) + 990;
+        if(tankLeft >= platformLeft + 990){
+            left = platformLeft + 990;
         }
     }
     else if(sideGame == "down") {
-        if(parseInt(window.getComputedStyle(tank).top) >= parseInt(window.getComputedStyle(platform).marginTop) + 633){
-            topP = parseInt(window.getComputedStyle(platform).marginTop) + 633;
+        if(tankTop >= platformTop + 633){
+            topP = platformTop + 633;
         }
     }
     else if(sideGame == "top") {
-        if(parseInt(window.getComputedStyle(tank).top) <= parseInt(window.getComputedStyle(platform).marginTop) + 15){
-            topP = parseInt(window.getComputedStyle(platform).marginTop) + 15;
+        if(tankTop <= platformTop + 15){
+            topP = platformTop + 15;
         }
     }
     else if(sideGame == "left") {
-        if(parseInt(window.getComputedStyle(tank).left) <= parseInt(window.getComputedStyle(platform).marginLeft) + 15){
-            left = parseInt(window.getComputedStyle(platform).marginLeft) + 15;
+        if(tankLeft <= platformLeft + 15){
+            left = platformLeft + 15;
         }
     }
 }

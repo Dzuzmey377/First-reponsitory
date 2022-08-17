@@ -4,169 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tanks.css" rel="stylesheet">
     <title>tanks</title>
-    <style>
-        body {
-            background-color: #636363;
-            
-        }
-
-        .platform {
-            background-color: black;
-            width: 1040px;
-            height: 679px;
-            margin-left: 240px;
-        }
-
-        #tank {
-     		cursor: pointer;
-			position: absolute;
-            left: 250px;
-            width: 48px;
-            height: 48px;
-            top: 10px;
-    	}
-
-        .elemAll {
-            width: 80px;
-            height: 235px;
-            background-color: #6b0900;
-            top: 61px;
-            position: absolute;
-
-        }
-
-        .elemAll2 {
-            width: 80px;
-            height: 182px;
-            background-color: #6b0900;
-            top: 452px;
-            position: absolute;
-        }
-
-        .elemAll3 {
-            width: 80px;
-            height: 52px;
-            background-color: #6b0900;
-            top: 295px;
-            position: absolute;
-        }
-
-        .elemAll4 {
-            width: 80px;
-            height: 26px;
-            background-color: #6b0900;
-            top: 61px;
-            position: absolute;
-        }
-
-        .elemAll5 {
-            width: 80px;
-            height: 104px;
-            background-color: #6b0900;
-            top: 139px;
-            position: absolute;
-        }
-
-        .elemAll6 {
-            width: 80px;
-            height: 182px;
-            background-color: #6b0900;
-            top: 61px;
-            position: absolute;
-        }
-
-        .elemAll7 {
-            width: 160px;
-            height: 52px;
-            background-color: #6b0900;
-            top: 348px;
-            position: absolute;
-        }
-
-        .elemAll8 {
-            width: 80px;
-            height: 156px;
-            background-color: #6b0900;
-            top: 401px;
-            position: absolute;
-        }
-
-        .elemAll9 {
-            width: 80px;
-            height: 52px;
-            background-color: #6b0900;
-            top: 427px;
-            position: absolute;
-        }
-
-        .elemAll10 {
-            width: 80px;
-            height: 52px;
-            background-color: #8c4600;
-            top: 165px;
-            position: absolute;
-        }
-
-        .elemAll11 {
-            width: 80px;
-            height: 26px;
-            background-color: #8c4600;
-            top: 374px;
-            position: absolute;
-        }
-
-        .elemAll12 {
-            width: 161px;
-            height: 78px;
-            background-color: #016dd9;
-            top: 609px;
-            position: absolute;
-        }
-
-        .kirp {
-            height: 13px;
-            width: 40px;
-            background: url("kirpich.jpeg");
-            display: block;
-            float: left;
-        }
-
-        .block {
-            width: 40px;
-            height: 26px;
-            background: url("blk.jpeg");
-            display: block;
-            float: left;
-        }
-
-        .pul1 {
-			position: absolute;
-			display: none;
-		}
-
-        #pulAll2 {
-            position: absolute;
-            display: none;
-        }
-
-        #tankEn1 {
-            position: absolute;
-            left: 1065px;
-            top: 296px;
-            width: 48px;
-            height: 48px;
-        }
-    </style>
-
     <script src="tankDamage.js"></script>
     <script src="tankDamageEnemy.js"></script>
     <script src="tankCollision.js"></script>
-    
 </head>
 <body>
-    <div id="pulAll">
-		<div class="pul1">
+    <div id="bulletAll">
+		<div class="bullet1">
 			<img src="bullet.png">
 		</div>
 	</div>
@@ -178,462 +24,28 @@
 
         <div id="tankEn1" style="transform: rotate(0deg);"><img src="tankEn.png" width="48" height="48"></div>
 
-        <div id="pulAll2">
+        <div id="bullet2">
             <img src="bullet.png">
         </div>
 
-        <div class="elemAll" style="left: 328px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll" style="left: 488px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll" style="left: 968px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll" style="left: 1128px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll2" style="left: 328px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll2" style="left: 488px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll2" style="left: 968px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll2" style="left: 1128px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll3" style="left: 648px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll3" style="left: 808px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll4" style="left: 648px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll5" style="left: 648px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll6" style="left: 808px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll7" style="left: 408px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll7" style="left: 968px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll8" style="left: 648px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-        <div class="elemAll8" style="left: 808px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
-
-        <div class="elemAll9" style="left: 728px;">
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-            <div class="kirp"></div>
-        </div>
+        <div class="elemAll elemAll1N1" style="left: 328px;"></div>
+        <div class="elemAll elemAll1N2" style="left: 488px;"></div>
+        <div class="elemAll elemAll1N3" style="left: 968px;"></div>
+        <div class="elemAll elemAll1N4" style="left: 1128px;"></div>
+        <div class="elemAll2 elemAll2N1" style="left: 328px;"></div>
+        <div class="elemAll2 elemAll2N2" style="left: 488px;"></div>
+        <div class="elemAll2 elemAll2N3" style="left: 968px;"></div>
+        <div class="elemAll2 elemAll2N4" style="left: 1128px;"></div>
+        <div class="elemAll3 elemAll3N1" style="left: 648px;"></div>
+        <div class="elemAll3 elemAll3N2" style="left: 808px;"></div>
+        <div class="elemAll4" style="left: 648px;"></div>
+        <div class="elemAll5" style="left: 648px;"></div>
+        <div class="elemAll6" style="left: 808px;"></div>
+        <div class="elemAll7 elemAll7N1" style="left: 408px;"></div>
+        <div class="elemAll7 elemAll7N2" style="left: 968px;"></div>
+        <div class="elemAll8 elemAll8N1" style="left: 648px;"></div>
+        <div class="elemAll8 elemAll8N2" style="left: 808px;"></div>
+        <div class="elemAll9" style="left: 728px;"></div>
 
         <div class="elemAll10" style="left: 728px;">
             <div class="block"></div>
@@ -641,7 +53,6 @@
             <div class="block"></div>
             <div class="block"></div>
         </div>
-
         <div class="elemAll11" style="left: 248px">
             <div class="block"></div>
             <div class="block"></div>
@@ -655,6 +66,35 @@
     </div>
     
     <script>
+        function bricks(idBrick, coll) {
+            let groupBricks = document.querySelector(idBrick);
+
+            for(let i = 0; i < coll; i++) {
+                let brick = document.createElement("div");
+                brick.classList.add("brick");
+                groupBricks.appendChild(brick);
+            }
+        }
+
+        bricks(".elemAll1N1", 36);
+        bricks(".elemAll1N2", 36);
+        bricks(".elemAll1N3", 36);
+        bricks(".elemAll1N4", 36);
+        bricks(".elemAll2N1", 28);
+        bricks(".elemAll2N2", 28);
+        bricks(".elemAll2N3", 28);
+        bricks(".elemAll2N4", 28);
+        bricks(".elemAll3N1", 8);
+        bricks(".elemAll3N2", 8);
+        bricks(".elemAll4", 4);
+        bricks(".elemAll5", 16);
+        bricks(".elemAll6", 28);
+        bricks(".elemAll7N1", 16);
+        bricks(".elemAll7N2", 16);
+        bricks(".elemAll8N1", 24);
+        bricks(".elemAll8N2", 24);
+        bricks(".elemAll9", 8);
+
         let left = 250;
 		let topP = 0;
 
@@ -665,47 +105,48 @@
 		let bool2 = true;
 		let bool3 = true;
 		let bool4 = true;
-        let pulZam = true;
+        let bulletEnemy = true;
         
         let numD = 1;
         let leftTop = 0;
 
-        let dam;
+        let damageEn;
 
-        let st = "left";
+        let moveTank = "left";
 
         let tank = document.getElementById("tank");
         let tankEn1 = document.getElementById("tankEn1");
         
         let platform = document.querySelector(".platform");
-        let kirps = document.querySelectorAll('div.kirp');
 
-        let pulAll2 = document.getElementById("pulAll2"); 
+        let brick = document.querySelectorAll('div.brick');
+
+        let bullet2 = document.getElementById("bullet2"); 
 
         let consoleDamEnemy;
 
-        function start(stor, gr, b){
+        function start(move, gr, b){
             tank.style.transform = `rotate(${gr}deg)`;
                 function anim() {
-                    if(stor == "right") {
+                    if(move == "right") {
                         left += 4;
                         tank.style.left = left + "px";
                         collision("right");
                         collisionGame("right");
                     }
-                    else if(stor == "down") {
+                    else if(move == "down") {
                         topP += 4;
                         tank.style.top = topP + "px";   
                         collision("down");
                         collisionGame("down");
                     }
-                    else if(stor == "top") {
+                    else if(move == "top") {
                         topP -= 4;
                         tank.style.top = topP + "px";   
                         collision("top");   
                         collisionGame("top");                 
                     }
-                    else if(stor == "left") {
+                    else if(move == "left") {
                         left -= 4;
                         tank.style.left = left + "px";
                         collision("left");
@@ -717,7 +158,7 @@
                     document.addEventListener("keyup", function(event) {
                         if(event.code == `Key${b}`) {
                             cancelAnimationFrame(rAn);
-                            switch (stor) {
+                            switch (move) {
                                 case "right":
                                     bool = true;
                                     break;
@@ -759,7 +200,7 @@
         });
 
         document.addEventListener("keydown", function(event) {
-            if(event.key == "Shift" && pulZam == true) {
+            if(event.key == "Shift" && bulletEnemy == true) {
                 if(tank.style.transform == "rotate(90deg)") {
                     damageTank(90, 30, 13, "left&right", "right");
                 }
