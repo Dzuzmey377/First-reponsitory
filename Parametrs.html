@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parametrs</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="dfg"></div>
+    <script>
+        function addBlock(id, x, y, c) {
+            let ddd = document.createElement("div");
+            ddd.style.width = x;
+            ddd.style.height = y;
+            ddd.style.backgroundColor = c;
+            ddd.style.position = "absolute";
+            ddd.style.left = 0;
+            ddd.id = id;
+            document.getElementById("dfg").appendChild(ddd);
+        }
+
+        addBlock("block1", "100px", "100px","red");
+        addBlock("block2", "300px", "300px", "blue");
+        
+        let num = 0;
+
+        function anim(idD) {
+            num += 3;
+            let kag = document.getElementById(idD);
+            kag.style.left = num + "px";
+            requestAnimationFrame(anim);
+        }  
+
+        anim("block1");
+    </script>
+</body>
+</html>
