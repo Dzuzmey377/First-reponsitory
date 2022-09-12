@@ -1,8 +1,8 @@
-function damageTank(rotate, leftNum, topNum, direction, direction2) {
+function damageTank(rotate, leftNum, topNum, direction, direction2, tankElem) {
     bulletEnemy = false;
     setTimeout(function(){
         bulletEnemy = true;
-    }, 1500);
+    }, 1250);
 
     let bullet = document.querySelector(".bullet" + numD);
     numD += 1;
@@ -38,18 +38,20 @@ function damageTank(rotate, leftNum, topNum, direction, direction2) {
     let setT;
 
     setT = setInterval(function(){
+        let tankElement = document.getElementById(tankElem);
+
         let bulletTop = parseInt(window.getComputedStyle(bullet).top);
         let bulletLeft = parseInt(window.getComputedStyle(bullet).left);
-        let tankEn1Top = parseInt(window.getComputedStyle(tankEn1).top);
-        let tankEn1Left = parseInt(window.getComputedStyle(tankEn1).left);
+        let tankEnementTop = parseInt(window.getComputedStyle(tankElement).top);
+        let tankEnementLeft = parseInt(window.getComputedStyle(tankElement).left);
 
         if(direction == "left&right") {
-            if(bulletLeft >= tankEn1Left - 11 && bulletLeft <= tankEn1Left + 65 && bulletTop >= tankEn1Top - 5 && bulletTop <= tankEn1Top + 42) {
+            if(bulletLeft >= tankEnementLeft - 11 && bulletLeft <= tankEnementLeft + 65 && bulletTop >= tankEnementTop - 5 && bulletTop <= tankEnementTop + 42) {
                 consoleDamage();
             }
         }
         else if(direction == "top&down") {
-            if(bulletLeft >= tankEn1Left - 5 && bulletLeft <= tankEn1Left + 65 && bulletTop >= tankEn1Top - 11 && bulletTop <= tankEn1Top + 42){
+            if(bulletLeft >= tankEnementLeft - 5 && bulletLeft <= tankEnementLeft + 65 && bulletTop >= tankEnementTop - 11 && bulletTop <= tankEnementTop + 42){
                 consoleDamage();
             }
         }
@@ -79,9 +81,15 @@ function damageTank(rotate, leftNum, topNum, direction, direction2) {
             bullet.style.left = pxL + "px";
         }
 
-        num += 15;
 		let ran1 = requestAnimationFrame(an1);
-		if(num >= 980) {
+
+        let bulletLeft = parseInt(window.getComputedStyle(bullet).left);
+        let bulletTop = parseInt(window.getComputedStyle(bullet).top);
+
+        let platformLeft = parseInt(window.getComputedStyle(platform).marginLeft);
+        let platformTop = parseInt(window.getComputedStyle(platform).marginTop);
+
+		if(bulletLeft <= platformLeft || bulletLeft >= platformLeft + 1040 || bulletTop <= platformTop || bulletTop >= platformTop + 679) {
 			cancelAnimationFrame(ran1);
 			bullet.remove();
 		}

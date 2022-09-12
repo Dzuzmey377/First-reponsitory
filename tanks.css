@@ -10,7 +10,7 @@ body {
 }
 
 #tank {
-     cursor: pointer;
+    cursor: pointer;
     position: absolute;
     left: 250px;
     width: 48px;
@@ -136,15 +136,5 @@ body {
     display: none;
 }
 
-#bullet2 {
-    position: absolute;
-    display: none;
-}
 
-#tankEn1 {
-    position: absolute;
-    left: 1065px;
-    top: 296px;
-    width: 48px;
-    height: 48px;
-}
+
