@@ -58,21 +58,23 @@ function damageEnemyes(tankElem, bulletElem) {
                 setTimeout(() => {boolValueDamEn = true}, 1750);
             }
 
-            if(tankEn1.style.transform == "rotate(0deg)") {
+            if(tankElement.style.transform == "rotate(0deg)") {
                 damageEnemy(tankEn1Left2, tankTop2, 0, "top");
             }  
-            else if(tankEn1.style.transform == "rotate(180deg)") {
+            else if(tankElement.style.transform == "rotate(180deg)") {
                 damageEnemy(tankEn1Left2, tankTop3, 180, "down"); 
             }
-            else if(tankEn1.style.transform == "rotate(270deg)") {
+            else if(tankElement.style.transform == "rotate(270deg)") {
                 damageEnemy(tankEn1Left2, tankTop4, 270, "left");
             }
-            else if(tankEn1.style.transform == "rotate(90deg)") {  
+            else if(tankElement.style.transform == "rotate(90deg)") {  
                 damageEnemy(tankEn1Left2, tankTop4, 90, "right");  
             }
         }
     }, 10);
 }
+
+damageEnemyes("tankEn1", "bullet2");
 
 let boolValueEnemy = true;
 

@@ -1,4 +1,4 @@
-function damageTank(rotate, leftNum, topNum, direction, direction2, tankElem) {
+function damageTank(rotate, leftNum, topNum, direction, direction2) {
     bulletEnemy = false;
     setTimeout(function(){
         bulletEnemy = true;
@@ -38,12 +38,10 @@ function damageTank(rotate, leftNum, topNum, direction, direction2, tankElem) {
     let setT;
 
     setT = setInterval(function(){
-        let tankElement = document.getElementById(tankElem);
-
         let bulletTop = parseInt(window.getComputedStyle(bullet).top);
         let bulletLeft = parseInt(window.getComputedStyle(bullet).left);
-        let tankEnementTop = parseInt(window.getComputedStyle(tankElement).top);
-        let tankEnementLeft = parseInt(window.getComputedStyle(tankElement).left);
+        let tankEnementTop = parseInt(window.getComputedStyle(tankEn1).top);
+        let tankEnementLeft = parseInt(window.getComputedStyle(tankEn1).left);
 
         if(direction == "left&right") {
             if(bulletLeft >= tankEnementLeft - 11 && bulletLeft <= tankEnementLeft + 65 && bulletTop >= tankEnementTop - 5 && bulletTop <= tankEnementTop + 42) {
@@ -59,9 +57,7 @@ function damageTank(rotate, leftNum, topNum, direction, direction2, tankElem) {
     }, 10);
 
     let pxL = parseInt(window.getComputedStyle(tank).left) + leftNum;
-    let pxT = parseInt(window.getComputedStyle(tank).top) + topNum;
-    
-	let num = 0;		
+    let pxT = parseInt(window.getComputedStyle(tank).top) + topNum;		
 
 	let an1 = function() {	
         if(direction2 == "right") {

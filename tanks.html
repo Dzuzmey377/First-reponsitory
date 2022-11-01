@@ -66,15 +66,6 @@
     </div>
     
     <script>
-        let damageEn;
-        
-        function createTankFull(idTank, idBullet) {
-            createTank(idTank, "1055px", "296px", "48px", "48px", 0, "48", "48", idBullet);
-            damageEnemyes(idTank, idBullet);
-        }
-
-        createTankFull("tankEn1", "bullet2");
-        
         function createTank(idTank, xTank, yTank, wTank, hTank, transformTank, wTankImg, hTankImg, idBullet) {
             let creatTankEnemy = document.createElement("div");
             creatTankEnemy.id = idTank;
@@ -106,6 +97,10 @@
             createImgBul.src = "bullet.png";
             document.getElementById(bullets).appendChild(createImgBul);
         }
+
+        createTank("tankEn1", "1055px", "296px", "48px", "48px", 0, "48", "48", "bullet2");
+        createTank("tankEn2", "1155px", "296px", "48px", "48px", 0, "48", "48", "bullet3");
+        createTank("tankEn3", "100px", "296px", "48px", "48px", 0, "48", "48", "bullet4");
 
         function bricks(idBrick, coll) {
             let groupBricks = document.querySelector(idBrick);
@@ -158,8 +153,6 @@
         let platform = document.querySelector(".platform");
 
         let brick = document.querySelectorAll('div.brick');
-
-        let bullet2 = document.getElementById("bullet2"); 
 
         let consoleDamEnemy;
 
@@ -240,16 +233,16 @@
         document.addEventListener("keydown", function(event) {
             if(event.key == "Shift" && bulletEnemy == true) {
                 if(tank.style.transform == "rotate(90deg)") {
-                    damageTank(90, 30, 13, "left&right", "right", "tankEn1");
+                    damageTank(90, 30, 13, "left&right", "right");
                 }
                 else if(tank.style.transform == "rotate(180deg)") {
-                    damageTank(180, 20, 13, "top&down", "down", "tankEn1");
+                    damageTank(180, 20, 13, "top&down", "down");
                 }
                 else if(tank.style.transform == "rotate(0deg)") {
-                    damageTank(0, 20, 15, "top&down", "top", "tankEn1");
+                    damageTank(0, 20, 15, "top&down", "top");
                 }
                 else if(tank.style.transform == "rotate(270deg)") {
-                    damageTank(270, 32, 14, "left&right", "left", "tankEn1");
+                    damageTank(270, 32, 14, "left&right", "left");
                 }
             }
         });
