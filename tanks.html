@@ -26,8 +26,6 @@
 
         <div class="tankEnAll"></div>
 
-        
-
         <div class="elemAll elemAll1N1" style="left: 328px;"></div>
         <div class="elemAll elemAll1N2" style="left: 488px;"></div>
         <div class="elemAll elemAll1N3" style="left: 968px;"></div>
@@ -99,8 +97,6 @@
         }
 
         createTank("tankEn1", "1055px", "296px", "48px", "48px", 0, "48", "48", "bullet2");
-        createTank("tankEn2", "1155px", "296px", "48px", "48px", 0, "48", "48", "bullet3");
-        createTank("tankEn3", "100px", "296px", "48px", "48px", 0, "48", "48", "bullet4");
 
         function bricks(idBrick, coll) {
             let groupBricks = document.querySelector(idBrick);
@@ -147,8 +143,7 @@
         let left = parseInt(window.getComputedStyle(tank).left);
 		let topP = parseInt(window.getComputedStyle(tank).top);
 
-        let left2 = 1055;
-		let topP2 = 296;
+        
         
         let platform = document.querySelector(".platform");
 
